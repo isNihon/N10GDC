@@ -1,0 +1,85 @@
+
+.backButton {
+    width: 50px;
+    height: 50px;
+    margin-right: 16px;
+    text-indent: -30000px;
+    overflow: hidden;
+    -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+    transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+    border: none;
+    outline: none;
+    cursor: pointer; 
+    position: absolute;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 118px;
+}
+
+.imgVal{
+    margin-left:35%;
+    margin-bottom:10px;
+}
+
+
+.input-scanner{
+    height: calc(2.25rem + 2px);
+    width: 100%;
+    padding: .375rem .75rem;
+    font-weight: 600;
+    font-size: 1.6em;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .15rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-align: center;
+    height: 40px!important;
+}
+
+input:hover, input:focus {
+    color: #495057;
+    border-color: #0097e6;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 168, 255,.8)
+}
+
+
+.prodTitle{
+    padding: 20px;
+    padding-bottom: 0px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.prodInspect{
+    text-align: center;
+    padding: 10px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+.search{
+    text-align: center;
+    font-size: 1.5em;
+}
+.product{
+    padding: 10px;
+    border: solid 1px;
+    border-color: #bdc3c7;
+    box-shadow: rgba(88, 83, 74, 0.2) 0px 3px 4px;
+    background: white;
+}
+
+
+.mensaje{
+    font-size: 1.5em;
+    color:#2980b9;
+    text-align: center;
+    font-weight: 600;
+}
+
+.ion-md-home{
+    font-size: 1.6em;
+}
+
+
+

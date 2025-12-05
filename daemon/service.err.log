@@ -1,0 +1,872 @@
+Fri, 14 Jun 2024 19:42:39 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 14 Jun 2024 19:42:39 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:32124) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Mon, 17 Jun 2024 02:18:39 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 17 Jun 2024 02:18:39 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6328) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Sun, 30 Jun 2024 21:40:33 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 30 Jun 2024 21:40:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Sun, 30 Jun 2024 21:40:40 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 30 Jun 2024 21:40:40 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:7420) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Tue, 27 Aug 2024 20:24:46 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Tue, 27 Aug 2024 20:24:46 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6176) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Mon, 23 Sep 2024 02:46:52 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 23 Sep 2024 02:46:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5628) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Mon, 23 Sep 2024 03:03:51 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 23 Sep 2024 03:03:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - getaddrinfo ENOTFOUND localhost
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at GetAddrInfoReqWrap.callback (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:68:18)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (dns.js:74:17)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at GetAddrInfoReqWrap.callback (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:68:18)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (dns.js:74:17) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Mon, 23 Sep 2024 03:04:18 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 23 Sep 2024 03:04:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5856) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Mon, 14 Oct 2024 01:28:43 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 14 Oct 2024 01:28:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5568) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Wed, 16 Oct 2024 21:21:59 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 16 Oct 2024 21:21:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6128) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Wed, 16 Oct 2024 21:23:47 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 16 Oct 2024 21:23:47 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Wed, 16 Oct 2024 21:25:58 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 16 Oct 2024 21:25:58 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5892) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Sun, 10 Nov 2024 17:34:52 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 10 Nov 2024 17:34:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Sun, 10 Nov 2024 17:34:57 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 10 Nov 2024 17:34:57 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:8132) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Sun, 10 Nov 2024 20:50:28 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 10 Nov 2024 20:50:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+Sun, 10 Nov 2024 20:51:35 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 10 Nov 2024 20:51:35 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6352) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Sun, 24 Nov 2024 02:39:03 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 24 Nov 2024 02:39:03 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+Sun, 24 Nov 2024 22:30:30 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 24 Nov 2024 22:30:30 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6032) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Fri, 17 Jan 2025 17:18:43 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 17 Jan 2025 17:18:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:14952) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Fri, 17 Jan 2025 17:18:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 17 Jan 2025 17:18:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:13600) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Fri, 17 Jan 2025 17:18:59 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 17 Jan 2025 17:18:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:9412) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Fri, 14 Feb 2025 23:02:09 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 14 Feb 2025 23:02:09 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Fri, 14 Feb 2025 23:02:14 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 14 Feb 2025 23:02:14 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Fri, 14 Feb 2025 23:02:19 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Fri, 14 Feb 2025 23:02:19 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:2672) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Sun, 04 May 2025 16:09:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 04 May 2025 16:09:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5808) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Sat, 14 Jun 2025 17:57:21 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sat, 14 Jun 2025 17:57:21 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Sat, 14 Jun 2025 17:57:26 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sat, 14 Jun 2025 17:57:26 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Sat, 14 Jun 2025 17:57:31 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sat, 14 Jun 2025 17:57:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+Sun, 15 Jun 2025 04:28:42 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 15 Jun 2025 04:28:42 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:5964) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Mon, 16 Jun 2025 02:41:04 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 16 Jun 2025 02:41:04 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Mon, 16 Jun 2025 02:43:03 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 16 Jun 2025 02:43:03 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6768) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Mon, 16 Jun 2025 04:49:25 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 16 Jun 2025 04:49:25 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Failed to connect to localhost:2046 - Could not connect (sequence)
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:30)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    at SequentialConnectionStrategy.connect (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:153:9)
+    at Socket.onError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connector.js:169:16)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:104:13)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:684:14)
+    at C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:575:25
+    [... lines matching original stack trace ...]
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3) {
+  code: 'ESOCKET'
+}
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Mon, 16 Jun 2025 05:03:33 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Mon, 16 Jun 2025 05:03:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6768) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+WSAStartup: (10107) Error en una llamada de sistema.
+internal/child_process.js:407
+    throw errnoException(err, 'spawn');
+    ^
+
+Error: spawn EROFS
+    at ChildProcess.spawn (internal/child_process.js:407:11)
+    at spawn (child_process.js:548:9)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at write (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:67:3)
+    at logger.value [as warn] (C:\Web\N10GDC\node_modules\node-windows\lib\eventlog.js:185:9)
+    at launch (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:143:18)
+    at process.<anonymous> (C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js:201:5)
+    at process.emit (events.js:315:20)
+    at process._fatalException (internal/process/execution.js:165:25) {
+  errno: 'EROFS',
+  code: 'EROFS',
+  syscall: 'spawn'
+}
+Sun, 22 Jun 2025 17:30:38 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 22 Jun 2025 17:30:38 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6416) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Wed, 20 Aug 2025 00:11:43 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 20 Aug 2025 00:11:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6900) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Wed, 20 Aug 2025 00:56:35 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 20 Aug 2025 00:56:35 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:3792) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Failed to resolve IPv4 addresses with current network
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Sat, 06 Sep 2025 05:50:40 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sat, 06 Sep 2025 05:50:40 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6464) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+ConnectionError: Connection lost - read ECONNRESET
+    at ConnectionError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\errors.js:12:12)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:28)
+    at Socket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+Emitted 'error' event on ConnectionPool instance at:
+    at Connection.handleError (C:\Web\N10GDC\node_modules\tedious-connection-pool\lib\connection-pool.js:92:14)
+    at Connection.emit (events.js:315:20)
+    at Connection.socketError (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:688:14)
+    at Socket.emit (events.js:327:22)
+    [... lines matching original stack trace ...]
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'ESOCKET'
+}
+Sun, 21 Sep 2025 22:29:35 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Sun, 21 Sep 2025 22:29:35 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6568) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Tue, 07 Oct 2025 05:58:03 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Tue, 07 Oct 2025 05:58:03 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+(node:6704) [DEP0064] DeprecationWarning: tls.createSecurePair() is deprecated. Please use tls.TLSSocket instead.
+Wed, 12 Nov 2025 23:39:50 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 12 Nov 2025 23:39:50 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::93
+    at Server.setupListenHandle [as _listen2] (net.js:1313:16)
+    at listenInCluster (net.js:1361:12)
+    at Server.listen (net.js:1447:7)
+    at Object.<anonymous> (C:\Web\N10GDC\app.js:56:8)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+    at internal/main/run_main_module.js:17:47
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1340:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 93
+}
+Wed, 12 Nov 2025 23:39:53 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 12 Nov 2025 23:39:53 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::93
+    at Server.setupListenHandle [as _listen2] (net.js:1313:16)
+    at listenInCluster (net.js:1361:12)
+    at Server.listen (net.js:1447:7)
+    at Object.<anonymous> (C:\Web\N10GDC\app.js:56:8)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+    at internal/main/run_main_module.js:17:47
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1340:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 93
+}
+Wed, 12 Nov 2025 23:39:55 GMT express-session deprecated undefined resave option; provide resave option at app.js:18:9
+Wed, 12 Nov 2025 23:39:55 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:18:9
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::93
+    at Server.setupListenHandle [as _listen2] (net.js:1313:16)
+    at listenInCluster (net.js:1361:12)
+    at Server.listen (net.js:1447:7)
+    at Object.<anonymous> (C:\Web\N10GDC\app.js:56:8)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+    at internal/main/run_main_module.js:17:47
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1340:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 93
+}
+C:\Web\N10GDC\config\passport.js:111
+                if (user.length > 0) {
+                         ^
+
+TypeError: Cannot read property 'length' of undefined
+    at C:\Web\N10GDC\config\passport.js:111:26
+    at Request.userCallback (C:\Web\N10GDC\node_modules\tedious-friendly\lib\index.js:34:28)
+    at Request._this.callback (C:\Web\N10GDC\node_modules\tedious-friendly\node_modules\tedious\lib\request.js:47:27)
+    at Connection.message (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:1416:27)
+    at Connection.dispatchEvent (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:672:45)
+    at MessageIO.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\connection.js:587:18)
+    at MessageIO.emit (events.js:315:20)
+    at ReadablePacketStream.<anonymous> (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\tedious\lib\message-io.js:104:16)
+    at ReadablePacketStream.emit (events.js:315:20)
+    at addChunk (C:\Web\N10GDC\node_modules\tedious-connection-pool\node_modules\readable-stream\lib\_stream_readable.js:291:12)

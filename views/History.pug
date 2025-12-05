@@ -1,0 +1,95 @@
+link(rel='stylesheet', href='/css/production/operators.css')  
+div(class="row panel").col-12
+
+  div.col-12.col-sm-12
+    div.col-12.col-sm-12.row
+        div.col-2.col-sm-2.row
+        div.col-8.col-sm-8.row(style="justify-content:center")
+            h1(id="titleTables") MOVIMIENTOS
+
+        div.col-2.col-sm-2.row
+            select( id="tipoDeDocumento" class="form-control form-control-sm" data-live-search="true"  )
+                option(value=' ') Ver tabla 
+                option(value=1) Movimientos
+                option(value=2) Etiquetas
+
+
+    div.col-12.col-sm-12
+        div.col-12.col-sm-12(style="margin-bottom:20px; height: 100%" id="div-labels" hidden)
+            div(id="demo" class="botones")
+                table(id="table-labels" class="display responsive nowrap" style="width:100%" data-order='[[ 1, "desc" ]]' data-page-length='30')
+                    thead
+                        tr
+                            th
+                            th(style="text-align:center;background-color:#e6e9e9" ) ID
+                            th(style="text-align:center;background-color:#e6e9e9" ) N.Parte
+                            th(style="text-align:center;background-color:#e6e9e9" ) Descripcion
+                            th(style="text-align:center;background-color:#e6e9e9" ) Modelo
+                            th(style="text-align:center;background-color:#e6e9e9" ) SDS
+                            //th(style="text-align:center;background-color:#e6e9e9" ) Serial
+                            th(style="text-align:center;background-color:#e6e9e9" ) SNP
+                            th(style="text-align:center;background-color:#e6e9e9" ) Fecha
+                            //th(style="text-align:center" ) 
+                            //th(style="text-align:center" ) Fecha
+
+
+        div.col-12.col-sm-12(style="margin-bottom:20px;"  id="div-eventos" )
+            div(id="demo2" class="botones")
+                table(id="Table-Mov" class="display responsive nowrap" style="width:100%" data-order='[[ 1, "desc" ]]' data-page-length='30')
+                    thead
+                        tr
+                            th 
+                            th(style="text-align:center") Id
+                            th(style="text-align:center;background-color:#6399F2") CANTIDAD
+                            th(style="text-align:center;background-color:#6399F2 ") ORIGEN
+                            th(style="text-align:center;background-color:#83DEF0 ") CANTIDAD
+                            th(style="text-align:center;background-color:#83DEF0 ") DESTINO
+                            th(style="text-align:center") FECHA
+
+        //-----MODAL DE BUSQUEDA
+        div(class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-sml" role="document" style="background-color:white" )
+              div(class="modal-content")
+                div(class="modal-header" style="background-color:#e6e9e9")
+                  h5(class="modal-title" id="exampleModalLabel" style="padding-left:160;;color:black") Buscar
+                  i(class=" ion ion-md-search")
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") &times;
+                div(class="modal-body"  )
+
+                  form(action='/search/register/' method='get' class="col-12 col-sm-12" form-name="form-search-register")
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;" hidden )
+                      label Table
+                      input( type="text" id="Tabla" name="Tabla" ).form-control
+                      
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                      div.col-md-8.col-8.row(style="justify-content:center")
+                        label FECHA INICIO
+                        input( type="date" id="DTIni" name="DTIni" ).form-control
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                      div.col-md-8.col-8.row(style="justify-content:center")
+                        label FECHA FINAL
+                        input( type="date" id="DTf" name="DTf" ).form-control
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:25px;" hidden)
+                      div.form-group(class="col-8 col-md-8" style="padding-bottom:0px")
+                        select(class="form-control form-control-sm" name="stat" id="stat")
+                            option(value=' ') STATUS
+                            option(value='APROBADA') aprobada
+                            option(value='APROBACION PENDIENTE') aprPendi
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:15px;padding-right:0px")
+                      button(type="button" 
+                      class="btn btn-primary" 
+                      style="background-color: blue " 
+                      onmouseover="this.style.backgroundColor = '#2471A3  ';this.style.transform='scale(1.3)'" 
+                      onmouseout="this.style.backgroundColor ='blue';this.style.transform='scale(1)'" 
+                      onclick="searchRegister()"
+                      )
+                        i(class=" ion ion-md-search")
+
+
+script(src='/js/jquery/jquery.form.min.js' type="text/javascript")
+script(src='/js/production/History.js' type="text/javascript")

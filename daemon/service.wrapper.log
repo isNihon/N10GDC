@@ -1,0 +1,261 @@
+2024-06-14 13:42:37 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-06-14 13:42:37 - Started 27360
+2024-06-14 14:41:47 - Stopping service.exe
+2024-06-14 14:41:47 - ProcessKill 27360
+2024-06-14 14:41:47 - Found child process: 22812 Name: conhost.exe
+2024-06-14 14:41:47 - Found child process: 32124 Name: node.exe
+2024-06-14 14:41:47 - Stopping process 22812
+2024-06-14 14:41:47 - Send SIGINT 22812
+2024-06-14 14:41:47 - SIGINT to 22812 failed - Killing as fallback
+2024-06-14 14:41:47 - Stopping process 32124
+2024-06-14 14:41:47 - Send SIGINT 32124
+2024-06-14 14:41:47 - SIGINT to 32124 failed - Killing as fallback
+2024-06-14 14:41:47 - Stopping process 27360
+2024-06-14 14:41:47 - Send SIGINT 27360
+2024-06-14 14:41:47 - SIGINT to 27360 failed - Killing as fallback
+2024-06-14 14:41:47 - Finished service.exe
+2024-06-16 20:18:32 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-06-16 20:18:33 - Started 5468
+2024-06-17 09:15:34 - Stopping service.exe
+2024-06-17 09:15:34 - ProcessKill 5468
+2024-06-17 09:15:34 - Found child process: 5996 Name: conhost.exe
+2024-06-17 09:15:34 - Found child process: 6328 Name: node.exe
+2024-06-17 09:15:34 - Stopping process 5996
+2024-06-17 09:15:34 - Send SIGINT 5996
+2024-06-17 09:15:34 - SIGINT to 5996 failed - Killing as fallback
+2024-06-17 09:15:35 - Stopping process 6328
+2024-06-17 09:15:35 - Send SIGINT 6328
+2024-06-17 09:15:35 - SIGINT to 6328 failed - Killing as fallback
+2024-06-17 09:15:35 - Stopping process 5468
+2024-06-17 09:15:35 - Send SIGINT 5468
+2024-06-17 09:15:35 - SIGINT to 5468 failed - Killing as fallback
+2024-06-17 09:15:35 - Finished service.exe
+2024-06-30 15:40:21 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-06-30 15:40:24 - Started 4336
+2024-07-03 09:02:50 - Stopping service.exe
+2024-07-03 09:02:50 - ProcessKill 4336
+2024-07-03 09:02:50 - Found child process: 4704 Name: conhost.exe
+2024-07-03 09:02:50 - Found child process: 7420 Name: node.exe
+2024-07-03 09:02:50 - Stopping process 4704
+2024-07-03 09:02:50 - Send SIGINT 4704
+2024-07-03 09:02:50 - SIGINT to 4704 failed - Killing as fallback
+2024-07-03 09:02:50 - Stopping process 7420
+2024-07-03 09:02:50 - Send SIGINT 7420
+2024-07-03 09:02:50 - SIGINT to 7420 failed - Killing as fallback
+2024-07-03 09:02:50 - Stopping process 4336
+2024-07-03 09:02:50 - Send SIGINT 4336
+2024-07-03 09:02:50 - SIGINT to 4336 failed - Killing as fallback
+2024-07-03 09:02:50 - Finished service.exe
+2024-08-27 14:24:39 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-08-27 14:24:40 - Started 5200
+2024-09-21 17:16:33 - Stopping service.exe
+2024-09-21 17:16:33 - Finished service.exe
+2024-09-22 20:46:43 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-09-22 20:46:43 - Started 4848
+2024-09-22 21:03:46 - Stopping service.exe
+2024-09-22 21:03:46 - ProcessKill 4848
+2024-09-22 21:03:47 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-09-22 21:04:13 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-09-22 21:04:13 - Started 4908
+2024-10-13 10:47:29 - Stopping service.exe
+2024-10-13 10:47:29 - ProcessKill 4908
+2024-10-13 10:47:29 - Shutdown exception
+Message:Consulta no válida 
+Stacktrace:   en System.Management.ManagementException.ThrowWithExtendedInfo(ManagementStatus errorCode)
+   en System.Management.ManagementObjectCollection.ManagementObjectEnumerator.MoveNext()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-10-13 19:28:30 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-10-13 19:28:30 - Started 4720
+2024-10-16 15:21:15 - Stopping service.exe
+2024-10-16 15:21:15 - ProcessKill 4720
+2024-10-16 15:21:15 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-10-16 15:21:52 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-10-16 15:21:53 - Started 4164
+2024-10-16 15:23:45 - Stopping service.exe
+2024-10-16 15:23:45 - ProcessKill 4164
+2024-10-16 15:23:45 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-10-16 15:25:52 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-10-16 15:25:52 - Started 4792
+2024-11-10 00:40:10 - Stopping service.exe
+2024-11-10 00:40:10 - ProcessKill 4792
+2024-11-10 00:40:11 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-11-10 11:34:43 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-11-10 11:34:43 - Started 4580
+2024-11-10 14:50:24 - Stopping service.exe
+2024-11-10 14:50:24 - ProcessKill 4580
+2024-11-10 14:50:25 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-11-10 14:51:26 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-11-10 14:51:27 - Started 4492
+2024-11-23 20:38:58 - Stopping service.exe
+2024-11-23 20:38:58 - ProcessKill 4492
+2024-11-23 20:38:58 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-11-24 16:30:22 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-11-24 16:30:22 - Started 4104
+2025-02-14 17:02:02 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-02-14 17:02:02 - Started 4496
+2025-05-04 06:58:19 - Stopping service.exe
+2025-05-04 06:58:19 - Finished service.exe
+2025-05-04 10:09:48 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-05-04 10:09:48 - Started 4700
+2025-06-14 22:27:24 - Stopping service.exe
+2025-06-14 22:27:24 - Finished service.exe
+2025-06-14 22:28:33 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-06-14 22:28:33 - Started 4716
+2025-06-15 20:41:00 - Stopping service.exe
+2025-06-15 20:41:00 - ProcessKill 4716
+2025-06-15 20:41:01 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2025-06-15 20:42:53 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-06-15 20:42:54 - Started 4604
+2025-06-15 22:49:21 - Stopping service.exe
+2025-06-15 22:49:21 - ProcessKill 4604
+2025-06-15 22:49:22 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2025-06-15 23:03:14 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-06-15 23:03:23 - Started 4688
+2025-06-22 08:36:40 - Stopping service.exe
+2025-06-22 08:36:40 - ProcessKill 4688
+2025-06-22 08:36:41 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2025-06-22 11:30:30 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-06-22 11:30:30 - Started 5116
+2025-08-19 18:11:33 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-08-19 18:11:34 - Started 4876
+2025-08-19 18:47:11 - Stopping service.exe
+2025-08-19 18:47:11 - ProcessKill 4876
+2025-08-19 18:47:11 - Found child process: 5312 Name: conhost.exe
+2025-08-19 18:47:11 - Found child process: 6900 Name: node.exe
+2025-08-19 18:47:11 - Stopping process 5312
+2025-08-19 18:47:11 - Send SIGINT 5312
+2025-08-19 18:47:11 - SIGINT to 5312 failed - Killing as fallback
+2025-08-19 18:47:11 - Stopping process 6900
+2025-08-19 18:47:11 - Send SIGINT 6900
+2025-08-19 18:47:11 - SIGINT to 6900 failed - Killing as fallback
+2025-08-19 18:47:11 - Stopping process 4876
+2025-08-19 18:47:11 - Send SIGINT 4876
+2025-08-19 18:47:11 - SIGINT to 4876 failed - Killing as fallback
+2025-08-19 18:47:11 - Finished service.exe
+2025-08-19 18:56:34 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-08-19 18:56:34 - Started 6064
+2025-09-05 19:13:57 - Stopping service.exe
+2025-09-05 19:13:57 - ProcessKill 6064
+2025-09-05 19:13:57 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2025-09-05 23:50:36 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-09-05 23:50:36 - Started 2840
+2025-09-21 07:42:39 - Stopping service.exe
+2025-09-21 07:42:39 - ProcessKill 2840
+2025-09-21 07:42:39 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2025-09-21 16:29:31 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-09-21 16:29:31 - Started 5140
+2025-10-06 23:57:58 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\N10GDC\node_modules\node-windows\lib\wrapper.js --file C:\Web\N10GDC\app.js --scriptoptions= --log "SERVICE wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2025-10-06 23:57:58 - Started 3196

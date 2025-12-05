@@ -1,0 +1,269 @@
+link(rel='stylesheet', href='/css/production/operators.css')  
+div(class="row panel" style="").col-12
+
+    div.col-12.col-sm-12(style="")
+        div.col-12.col-sm-12.row.hdr(style="text-align:center;")
+            div.col-12.col-sm-12.row.hdr(style="justify-content:center ;")
+                    h1 Formatos
+                    i(
+                        type="button"
+                        style="color:green"
+                        data-toggle="modal"
+                        data-target="#modalFormPrincipal"
+                        alt="Settings"
+                        class="btn btn-default"
+                        id="btn-add-User"
+                        onmouseover="this.style.transform='scale(3)'"
+                        onmouseout="this.style.transform='scale(1)'"
+                        title="¡ADD USER!"
+                        class="icon ion-ios-add")
+
+        div.col-12.col-sm-12(style="")
+            //-----tabla donde se listan mis usuarios
+            div.col-12.col-sm-12(style="margin-bottom:20px;")
+                div(id="demo" class="botones")
+                    table(id="table-format" class="display responsive nowrap" style="width:100%" data-order='[[ 3, "desc" ]]' data-page-length='10')
+                        thead
+                            tr
+                                th
+                                th
+                                th
+                                th(style="text-align:center" ) ID
+                                th(style="text-align:center" ) N.Parte
+                                th(style="text-align:center" ) Modelo
+                                th(style="text-align:center" ) Descripcion
+                                th(style="text-align:center" ) Status
+                                th(style="text-align:center" ) Fecha
+
+
+        //------modal de mi formulario
+        div(class="modal fade" id="modalFormPrincipal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto;overflow-x:hidden")
+            div(class="modal-dialog modal-xl" role="document")
+                div(class="modal-content")
+                    div(class="modal-header")
+
+                        div.form-group(class="col-2 col-md-2"  style="padding-top:7px ;padding-bottom:0px;margin-bottom:0px  " )
+                            abbr(title=' ' id="DocumenDis"  style="color:#0A7B89" )
+                                i(class="icon ion-md-help-circle")
+
+
+                        div.modal-title
+                        h5(style=" padding-left:450px") REPORTES
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                    div(class="modal-body " style="padding-left:0;padding-right:0px")
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:80px;back")
+                            form(action='/register/reporte/' method='post' class="col-12 col-sm-12" form-name="form-Principal")
+                                
+                                //-----ID de REGISTRO
+                                input(type="number" name="idFP" id="idFP" hidden ).form-control
+                                div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                                    label(style="width:100%;") Numero de parte:
+                                    input(type="text" name="PartNumber"  autocomplete="off" id="NumberPart" ).form-control
+                                div.form-group.row(class="col-3 col-md-3" style="padding-left:5px")
+                                    label(style="width:100%;") Modelo:
+                                    input(type="text" name="Model"  autocomplete="off" id="Model" ).form-control
+                                div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                                    label(style="width:100%;") Descripción:
+                                    input(type="text" name="Description"  autocomplete="off" id="Description" ).form-control
+                                div.form-group.row(class="col-1 col-md-1" style="padding-left:25px;padding-top:27px")
+                                    button(type="button" class="btn btn-primary" onclick="saveForm()" id="buttom-formPrincipal-report")
+                                        i(class="icon ion-ios-SAVE") 
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-top:10px;padding-left:25px;padding-right:0px;padding-right:20px" id="div-movimientos-add" hidden)
+                            div.form-group.row(class="col-12 col-md-12" style=";background-color:#E9F2F9;padding-top:15px;justify-content:center;" )
+                                form(action='/register/reporte/detalle/' method='post' class="col-12 col-sm-12" form-name="form-Detall" style="padding-left:90px")
+                                    //-----ID de REGISTRO
+                                    input(type="number" name="idForm" id="idForm" hidden ).form-control
+                                    //-----ID de detalle
+                                    input(type="number" name="idd" id="idd" hidden ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" )
+                                        //label(style="width:100%;") SDC:
+                                        label(style="width:100%;") No.Orden Compra:
+                                        input(type="text" name="SDS"  id="SDS"  ).form-control
+
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") SDC:
+                                        input(type="text" name="SDC"  id="SDC"  ).form-control
+
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Precio:
+                                        input(type="number" step="0.01" name="PRECIO"  id="PRECIO"  ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Proveedor:
+                                        input(type="text" name="PROVEEDOR"  id="PROVEEDOR"  ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Color:
+                                        input(type="text" name="COLOR"  id="COLOR"  style="padding-left:15px").form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Unidad de medida:
+                                        input(type="text" name="UM"  id="UM"  ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Cantidad:
+                                        input(type="number" name="Cant"  id="Cant"  ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Fecha de ingreso PO:
+                                        input(type="date" name="FPO"  id="FPO" ).form-control
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px")
+                                        label(style="width:100%;") Fecha de llegada:
+                                        input(type="date" name="FF"  id="FF" ).form-control
+                                    
+                                    
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px" )
+                                        label(style="width:100%;") Nivel:
+                                        input(type="text" name="Nivel" placeholder="" autocomplete="off" id="Nivel" ).form-control
+                                        
+                                    
+                                    //div.form-group.row(class="col-3 col-md-3" style="padding-left:15px" )
+                                        label(style="width:100%;") Nivel:
+                                        select(class="form-control form-control-sm" name="Nivel" id="Nivel")
+                                            option(value='') Seleccione Uno
+                                            option(value='nv1') nv1
+                                            option(value='nv2') nv2
+                                            option(value='nv4') nv3
+
+
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
+                                        label(style="width:100%;") Ubicacion
+                                        select(class="form-control form-control-sm" name="Ubicacion" id="Ubicacion")
+                                            option(value='') Seleccione Uno
+                                            option(value='U1') A.Recibo P1
+                                            option(value='U2') A.Recibo P2
+                                            option(value='U3') A.Recibo P3
+                                            option(value='U7') C.Verde P1
+                                            option(value='U8') C.Blanca P1
+                                            option(value='U9') I.Recibo P1
+                                            option(value='U10') I.Recibo P2
+                                            option(value='U11') I.Recibo P3
+                                            option(value='U4') Proceso P1
+                                            option(value='U5') Proceso P2
+                                            option(value='U6') Proceso P3
+
+
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:25px;padding-top:20px" )
+                                        label(style="width:100%;") 
+                                        button(type="button" class="btn btn-primary" onclick="saveFormDetalle()" ) 
+                                            i(class="icon ion-ios-SAVE") 
+
+                            div(class="col-12 col-md-12" style="padding-left:0;padding-right:15px;justify-content:center;text-align:center")
+                                h3 Detalle de formato
+                                table(id="Tabledetalle" class="display responsive nowrap" style="width:100%" data-order='[[ 3, "DESC" ]]' data-page-length='5')
+                                    thead
+                                        tr
+                                            th
+                                            th
+                                            th 
+                                            th(style="text-align:center") No.Orden Compra
+                                            th(style="text-align:center") SDC
+                                            th(style="text-align:center") UM
+                                            th(style="text-align:center") Cantidad
+                                            th(style="text-align:center") Ingreso
+                                            th(style="text-align:center") Llegada
+                                            th(style="text-align:center") Ubicación
+                                            th(style="text-align:center") Nivel
+                                            th(style="text-align:center") PRECIO
+                                            th(style="text-align:center") PROVEEDOR
+                                            th(style="text-align:center") COLOR
+
+
+                            div(class="col-12 col-md-12" style="padding-top:50px" id="t-doc" hidden)
+                                form(id="frmUploader" enctype="multipart/form-data" action="/pdf" method="post" style=";background-color:#E9F2F9;padding-top:10px;padding-bottom:15px")
+                                    input(type="text" name="idPlanPro0" placeholder="" autocomplete="off" id="idPlanPro" hidden  ).form-control
+                                    div.row.col-12.col-sm-12(style="justify-content:center;")
+                                        //strong Anexos
+                                        input(type="text"  id="idLAVEL"  value="Anexos" style="border-color:white; border-width: 1px; border-style: solid;font-size: 1.5em;text-align:center" readonly)
+                                    div.row.col-12.col-sm-12(style="justify-content:center;")
+                                        div.row.col-4.col-sm-4(style="justify-content:center;")
+                                            strong DOCUMENTOS
+                                            input(type="file"  name="imgUploader" multiple accept=".pdf" class="form-control-file col-12" id="exampleFormControlFile1")
+                                        div.row.col-4.col-sm-4(style="justify-content:center;")
+                                            strong DESCRIPCION:
+                                            input(type="text" name="descripcion" placeholder="" autocomplete="off" id="descripcion" ).form-control
+                                        div.row.col-1.col-sm-1(style="justify-content:center;")
+                                            button(type="submit" name="submit" class="btn btn-primary col-12" id="btnSubmit" style="margin-left:10px;margin-top:20px;") +
+                                br              
+                                div.row.col-12.col-sm-12(style=" background: white;padding-right:0px;padding-top:7px;padding-bottom:15px ; height: 100%")                                             
+                                    div.col-12.col-sm-12(style="margin-bottom:20px;height: 100%")
+                                        div(id="RAE-DOCUMENTOS-prof" class="botones")
+                                            table(id="tab-docs" class="display responsive " style="width:100%" data-order='[[ 6, "desc" ]]' data-page-length='3')
+                                                thead
+                                                    tr
+                                                        th
+                                                        th
+                                                        th
+                                                        th ID
+                                                        th DESCRIPCION
+                                                        th FECHA
+                                                        th DOCUMENTO
+                            
+                            br
+                            div(class="modal-footer").col-12
+                                //button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+                                button(type="button" class="btn btn-primary" id="btn-user" data-dismiss="modal" ) Guardar
+
+
+
+        //-----MODAL DE BUSQUEDA
+        div(class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-sml" role="document" style="background-color:white" )
+                div(class="modal-content")
+                    div(class="modal-header" style="background-color:#e6e9e9")
+                        h5(class="modal-title" id="exampleModalLabel" style="padding-left:160;;color:black") Buscar
+                        i(class=" ion ion-md-search")
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                    div(class="modal-body"  )
+
+                        form(action='/search/register/' method='get' class="col-12 col-sm-12" form-name="form-search-register")
+
+                            div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;" hidden )
+                                label Table
+                                input( type="text" id="Tabla" name="Tabla" ).form-control
+                            
+                            div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                                div.col-md-8.col-8.row(style="justify-content:center")
+                                    label FECHA INICIO
+                                    input( type="date" id="DTIni" name="DTIni" ).form-control
+
+                            div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                                div.col-md-8.col-8.row(style="justify-content:center")
+                                    label FECHA FINAL
+                                    input( type="date" id="DTf" name="DTf" ).form-control
+
+                            div.col-md-12.col-12.row(style="justify-content:center;padding-top:15px;padding-right:0px")
+                                button(type="button" 
+                                class="btn btn-primary" 
+                                style="background-color: blue " 
+                                onmouseover="this.style.backgroundColor = '#2471A3  ';this.style.transform='scale(1.3)'" 
+                                onmouseout="this.style.backgroundColor ='blue';this.style.transform='scale(1)'" 
+                                onclick="searchRegister()"
+                                )
+                                    i(class=" ion ion-md-search")
+
+
+
+        //-----modal de pdf
+        div(class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="z-index:233223")
+                    div(class="modal-dialog modal-xl" style="max-width: 80%;" role="document")
+                        div(class="modal-content")
+                            div(class="row" style="padding-rigth:0px;padding:0px;left:0px;").col-12
+                                embed(src="", type="" height="1000px" width="100%")#pdfFile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script(src='/js/jquery/jquery.form.min.js' type="text/javascript")
+script(src='/js/production/docs.js' type="text/javascript")
+script(src='/js/production/reportes.js' type="text/javascript")

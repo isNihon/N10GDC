@@ -1,0 +1,207 @@
+2023-11-28 13:12:47 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-11-28 13:12:48 - Started 9488
+2023-11-28 14:43:04 - Stopping sgnca.exe
+2023-11-28 14:43:04 - ProcessKill 9488
+2023-11-28 14:43:05 - Found child process: 4016 Name: conhost.exe
+2023-11-28 14:43:05 - Found child process: 11928 Name: node.exe
+2023-11-28 14:43:05 - Stopping process 4016
+2023-11-28 14:43:05 - Send SIGINT 4016
+2023-11-28 14:43:05 - SIGINT to 4016 failed - Killing as fallback
+2023-11-28 14:43:05 - Stopping process 11928
+2023-11-28 14:43:05 - Send SIGINT 11928
+2023-11-28 14:43:05 - SIGINT to 11928 failed - Killing as fallback
+2023-11-28 14:43:05 - Stopping process 9488
+2023-11-28 14:43:05 - Send SIGINT 9488
+2023-11-28 14:43:05 - SIGINT to 9488 failed - Killing as fallback
+2023-11-28 14:43:05 - Finished sgnca.exe
+2023-11-30 16:14:13 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-11-30 16:14:14 - Started 18324
+2023-12-06 15:14:29 - Stopping sgnca.exe
+2023-12-06 15:14:29 - ProcessKill 18324
+2023-12-06 15:14:29 - Found child process: 15512 Name: conhost.exe
+2023-12-06 15:14:29 - Found child process: 12276 Name: node.exe
+2023-12-06 15:14:29 - Stopping process 15512
+2023-12-06 15:14:29 - Send SIGINT 15512
+2023-12-06 15:14:29 - SIGINT to 15512 failed - Killing as fallback
+2023-12-06 15:14:29 - Stopping process 12276
+2023-12-06 15:14:29 - Send SIGINT 12276
+2023-12-06 15:14:29 - SIGINT to 12276 failed - Killing as fallback
+2023-12-06 15:14:29 - Stopping process 18324
+2023-12-06 15:14:29 - Send SIGINT 18324
+2023-12-06 15:14:29 - SIGINT to 18324 failed - Killing as fallback
+2023-12-06 15:14:29 - Finished sgnca.exe
+2023-12-06 15:14:39 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-06 15:14:39 - Started 17252
+2023-12-07 10:30:00 - Stopping sgnca.exe
+2023-12-07 10:30:00 - ProcessKill 17252
+2023-12-07 10:30:00 - Found child process: 9584 Name: conhost.exe
+2023-12-07 10:30:00 - Found child process: 15556 Name: node.exe
+2023-12-07 10:30:00 - Stopping process 9584
+2023-12-07 10:30:00 - Send SIGINT 9584
+2023-12-07 10:30:00 - SIGINT to 9584 failed - Killing as fallback
+2023-12-07 10:30:01 - Stopping process 15556
+2023-12-07 10:30:01 - Send SIGINT 15556
+2023-12-07 10:30:01 - SIGINT to 15556 failed - Killing as fallback
+2023-12-07 10:30:01 - Stopping process 17252
+2023-12-07 10:30:01 - Send SIGINT 17252
+2023-12-07 10:30:01 - SIGINT to 17252 failed - Killing as fallback
+2023-12-07 10:30:01 - Finished sgnca.exe
+2023-12-07 10:30:04 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-07 10:30:04 - Started 10212
+2023-12-07 15:31:52 - Stopping sgnca.exe
+2023-12-07 15:31:52 - ProcessKill 10212
+2023-12-07 15:31:52 - Found child process: 8468 Name: conhost.exe
+2023-12-07 15:31:52 - Found child process: 20040 Name: node.exe
+2023-12-07 15:31:52 - Stopping process 8468
+2023-12-07 15:31:52 - Send SIGINT 8468
+2023-12-07 15:31:52 - SIGINT to 8468 failed - Killing as fallback
+2023-12-07 15:31:52 - Stopping process 20040
+2023-12-07 15:31:52 - Send SIGINT 20040
+2023-12-07 15:31:52 - SIGINT to 20040 failed - Killing as fallback
+2023-12-07 15:31:52 - Stopping process 10212
+2023-12-07 15:31:52 - Send SIGINT 10212
+2023-12-07 15:31:52 - SIGINT to 10212 failed - Killing as fallback
+2023-12-07 15:31:52 - Finished sgnca.exe
+2023-12-07 15:31:56 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-07 15:31:56 - Started 14852
+2023-12-13 13:06:10 - Stopping sgnca.exe
+2023-12-13 13:06:10 - ProcessKill 14852
+2023-12-13 13:06:10 - Found child process: 2300 Name: conhost.exe
+2023-12-13 13:06:10 - Found child process: 12676 Name: node.exe
+2023-12-13 13:06:10 - Stopping process 2300
+2023-12-13 13:06:10 - Send SIGINT 2300
+2023-12-13 13:06:10 - SIGINT to 2300 failed - Killing as fallback
+2023-12-13 13:06:10 - Stopping process 12676
+2023-12-13 13:06:10 - Send SIGINT 12676
+2023-12-13 13:06:10 - SIGINT to 12676 failed - Killing as fallback
+2023-12-13 13:06:10 - Stopping process 14852
+2023-12-13 13:06:10 - Send SIGINT 14852
+2023-12-13 13:06:10 - SIGINT to 14852 failed - Killing as fallback
+2023-12-13 13:06:10 - Finished sgnca.exe
+2023-12-13 13:06:17 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-13 13:06:17 - Started 9456
+2023-12-13 13:27:33 - Stopping sgnca.exe
+2023-12-13 13:27:33 - ProcessKill 9456
+2023-12-13 13:27:33 - Found child process: 14524 Name: conhost.exe
+2023-12-13 13:27:33 - Found child process: 11568 Name: node.exe
+2023-12-13 13:27:33 - Stopping process 14524
+2023-12-13 13:27:33 - Send SIGINT 14524
+2023-12-13 13:27:34 - SIGINT to 14524 failed - Killing as fallback
+2023-12-13 13:27:34 - Stopping process 11568
+2023-12-13 13:27:34 - Send SIGINT 11568
+2023-12-13 13:27:34 - SIGINT to 11568 failed - Killing as fallback
+2023-12-13 13:27:34 - Stopping process 9456
+2023-12-13 13:27:34 - Send SIGINT 9456
+2023-12-13 13:27:34 - SIGINT to 9456 failed - Killing as fallback
+2023-12-13 13:27:34 - Finished sgnca.exe
+2023-12-13 13:30:02 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-13 13:30:02 - Started 17520
+2023-12-13 13:33:10 - Stopping sgnca.exe
+2023-12-13 13:33:10 - ProcessKill 17520
+2023-12-13 13:33:10 - Found child process: 13076 Name: conhost.exe
+2023-12-13 13:33:10 - Found child process: 10096 Name: node.exe
+2023-12-13 13:33:10 - Stopping process 13076
+2023-12-13 13:33:10 - Send SIGINT 13076
+2023-12-13 13:33:10 - SIGINT to 13076 failed - Killing as fallback
+2023-12-13 13:33:10 - Stopping process 10096
+2023-12-13 13:33:10 - Send SIGINT 10096
+2023-12-13 13:33:10 - SIGINT to 10096 failed - Killing as fallback
+2023-12-13 13:33:10 - Stopping process 17520
+2023-12-13 13:33:10 - Send SIGINT 17520
+2023-12-13 13:33:10 - SIGINT to 17520 failed - Killing as fallback
+2023-12-13 13:33:10 - Finished sgnca.exe
+2023-12-13 13:37:23 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-13 13:37:23 - Started 19068
+2023-12-13 13:40:56 - Stopping sgnca.exe
+2023-12-13 13:40:56 - ProcessKill 19068
+2023-12-13 13:40:56 - Found child process: 4980 Name: conhost.exe
+2023-12-13 13:40:56 - Found child process: 17080 Name: node.exe
+2023-12-13 13:40:57 - Stopping process 4980
+2023-12-13 13:40:57 - Send SIGINT 4980
+2023-12-13 13:40:57 - SIGINT to 4980 failed - Killing as fallback
+2023-12-13 13:40:57 - Stopping process 17080
+2023-12-13 13:40:57 - Send SIGINT 17080
+2023-12-13 13:40:57 - SIGINT to 17080 failed - Killing as fallback
+2023-12-13 13:40:57 - Stopping process 19068
+2023-12-13 13:40:57 - Send SIGINT 19068
+2023-12-13 13:40:57 - SIGINT to 19068 failed - Killing as fallback
+2023-12-13 13:40:57 - Finished sgnca.exe
+2023-12-13 13:42:29 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-13 13:42:29 - Started 1172
+2023-12-13 14:17:24 - Stopping sgnca.exe
+2023-12-13 14:17:24 - ProcessKill 1172
+2023-12-13 14:17:24 - Found child process: 13700 Name: conhost.exe
+2023-12-13 14:17:24 - Found child process: 12448 Name: node.exe
+2023-12-13 14:17:24 - Stopping process 13700
+2023-12-13 14:17:24 - Send SIGINT 13700
+2023-12-13 14:17:24 - SIGINT to 13700 failed - Killing as fallback
+2023-12-13 14:17:24 - Stopping process 12448
+2023-12-13 14:17:24 - Send SIGINT 12448
+2023-12-13 14:17:24 - SIGINT to 12448 failed - Killing as fallback
+2023-12-13 14:17:24 - Stopping process 1172
+2023-12-13 14:17:24 - Send SIGINT 1172
+2023-12-13 14:17:24 - SIGINT to 1172 failed - Killing as fallback
+2023-12-13 14:17:24 - Finished sgnca.exe
+2023-12-13 14:17:28 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-13 14:17:28 - Started 19368
+2023-12-13 14:19:06 - Stopping sgnca.exe
+2023-12-13 14:19:06 - ProcessKill 19368
+2023-12-13 14:19:06 - Found child process: 10036 Name: conhost.exe
+2023-12-13 14:19:06 - Found child process: 14420 Name: node.exe
+2023-12-13 14:19:06 - Stopping process 10036
+2023-12-13 14:19:06 - Send SIGINT 10036
+2023-12-13 14:19:06 - SIGINT to 10036 failed - Killing as fallback
+2023-12-13 14:19:06 - Stopping process 14420
+2023-12-13 14:19:06 - Send SIGINT 14420
+2023-12-13 14:19:06 - SIGINT to 14420 failed - Killing as fallback
+2023-12-13 14:19:06 - Stopping process 19368
+2023-12-13 14:19:06 - Send SIGINT 19368
+2023-12-13 14:19:06 - SIGINT to 19368 failed - Killing as fallback
+2023-12-13 14:19:06 - Finished sgnca.exe
+2023-12-20 09:35:59 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-20 09:35:59 - Started 18684
+2023-12-20 09:37:43 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-12-20 09:37:43 - Started 8272
+2024-01-18 22:16:30 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-01-18 22:16:32 - Started 4320
+2024-01-19 00:02:47 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-01-19 00:02:48 - Started 4264
+2024-01-19 16:08:47 - Stopping sgnca.exe
+2024-01-19 16:08:47 - ProcessKill 4264
+2024-01-19 16:08:47 - Found child process: 4696 Name: conhost.exe
+2024-01-19 16:08:47 - Found child process: 5212 Name: node.exe
+2024-01-19 16:08:47 - Stopping process 4696
+2024-01-19 16:08:47 - Send SIGINT 4696
+2024-01-19 16:08:47 - SIGINT to 4696 failed - Killing as fallback
+2024-01-19 16:08:47 - Stopping process 5212
+2024-01-19 16:08:47 - Send SIGINT 5212
+2024-01-19 16:08:47 - SIGINT to 5212 failed - Killing as fallback
+2024-01-19 16:08:47 - Stopping process 4264
+2024-01-19 16:08:47 - Send SIGINT 4264
+2024-01-19 16:08:47 - SIGINT to 4264 failed - Killing as fallback
+2024-01-19 16:08:47 - Finished sgnca.exe
+2024-02-16 12:34:05 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-02-16 12:34:06 - Started 4336
+2024-02-16 13:00:59 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-02-16 13:01:00 - Started 4636
+2024-03-16 18:24:15 - Stopping sgnca.exe
+2024-03-16 18:24:15 - Finished sgnca.exe
+2024-03-17 16:59:42 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-03-17 16:59:43 - Started 4876
+2024-03-23 16:01:39 - Stopping sgnca.exe
+2024-03-23 16:01:39 - ProcessKill 4876
+2024-03-23 16:01:39 - Shutdown exception
+Message:Se está cerrando el sistema. (Excepción de HRESULT: 0x8007045B)
+Stacktrace:   en System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   en System.Management.ManagementScope.InitializeGuts(Object o)
+   en System.Management.ManagementScope.Initialize()
+   en System.Management.ManagementObjectSearcher.Initialize()
+   en System.Management.ManagementObjectSearcher.Get()
+   en winsw.WrapperService.GetChildPids(Int32 pid)
+   en winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   en winsw.WrapperService.StopIt()
+   en winsw.WrapperService.OnShutdown()
+2024-03-25 01:00:12 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-03-25 01:00:14 - Started 5176
+2024-03-25 19:16:56 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Web\base\node_modules\node-windows\lib\wrapper.js --file C:\Web\base\app.js --scriptoptions= --log "SGNCA wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-03-25 19:17:03 - Started 4248

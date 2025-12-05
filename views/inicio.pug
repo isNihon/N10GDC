@@ -1,0 +1,840 @@
+html
+  head
+    title  SGNCA
+    meta(charset="utf-8")
+    meta(name='viewport' content='initial-scale=1, user-scalable=yes', width='device-width' )
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    link(rel='stylesheet', href='/css/datatables/dataTables.css')
+    link(rel='stylesheet', href='/css/datatables/responsive.dataTables.min.css')
+    link(rel='stylesheet', href='/css/bootstrap/bootstrap.min.css')
+    link(href="https://unpkg.com/ionicons@4.5.0/dist/css/ionicons.min.css" rel="stylesheet")
+    link(rel='stylesheet', href='/css/sidebar/style.css')
+    link(rel='stylesheet', href='/css/datetime/tempusdominus-bootstrap-4.min.css')
+    //link(rel='stylesheet', href='/css/validation/notify.css')
+    link(rel='stylesheet', href='/css/inicio.css')
+    link(rel='stylesheet', href='/css/reports.css')   
+    link(rel='stylesheet', href="/css/keyboard/index.css")  
+    //link(rel='stylesheet', href="/css/keyboard/jqbtk.min.css") 
+    link(rel='stylesheet', href='/css/production/production.css')
+    //link(rel='stylesheet', href='/css/production/checkbox.css')
+    ///link(rel="manifest" href="/manifest.json")
+    
+    //--permite notificaciones emn alert con style
+    <!-- CSS de SweetAlert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <!-- JS de SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- Toastr CSS y JS (alojados en CDNs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+
+  //----menu de accesos
+  header 
+    div.col-md-12.col-12.row(style="font-size: em; text-align:center ;padding-right:0px" )
+      div.col-md-12.col-12.row(style="justify-content:center ;padding-top:10px;padding-right:0px;")
+        //---menu de accesos centrales-inicio-salir
+
+        div.col-md-8.col-8.row(style='padding-bottom:5px')
+        div.col-md-4.col-4.row(style='padding:0px;padding-bottom:0px;padding-top:0px' )
+            div.col-md-12.col-12.row(style='padding:0px;padding-bottom:20px;padding-top:20px' )
+                    div.col-md-2.col-2.row(style='padding-bottom:5px;padding:0px;padding-top:5px;justify-content:center' )
+                            a(href="/Inicio?lang="+language.language class="" 
+                                id="filtra-FC-inicio"
+                                onmouseover="this.style.transform='scale(3)'" 
+                                onmouseout="this.style.transform='scale(1)'") 
+                                i(class="icon ion-ios-home" title='inicio')
+
+                    div.col-md-1.col-1.row(style='padding-bottom:5px;padding:0px;padding-top:5px;justify-content:center')
+                        a(href="/logout?lang="+language.language  id="filtra-FC-salir"  onmouseover="this.style.transform='scale(3)'" 
+                            onmouseout="this.style.transform='scale(1)'")
+                            i(class="icon ion-md-exit" title='salir')
+
+                    div.col-md-7.col-7.row(style='padding-top:3px;justify-content:center')
+                        button(type="button" class="btn btn-default"  id="filtra-FC-userr"  data-toggle="modal"  data-target="#MODAL-SECCION-USUARIOS" alt="Settings" 
+                        style='   border-radius:10px; border-color:white;width: 100%px; height: 30px '  onmouseover="this.style.transform='scale(1.4)'" 
+                            onmouseout="this.style.transform='scale(1)'")
+                            i(class="icon ion-md-contact")
+                            strong(style='font-size:13px')='.'+user.depto+'.'+user.name
+
+
+                    div.row.col-2.col-sm-2(class="switch-button" style=";padding-left:0px")
+                      input(type="checkbox" 
+                      name="switch-button" 
+                      id="switch-label" 
+                      class="switch-button__checkbox" )
+
+                      label(for="switch-label" 
+                        class="switch-button__label"
+                        onmouseover="this.style.transform='scale(1.4)'" 
+                        onmouseout="this.style.transform='scale(1)'"
+                        ) 
+
+
+        //---menu de accesos a modulos
+        div.col-md-12.col-12.row(style="justify-content:center" )
+          div.col-md-11.col-11.row(style="justify-content:center;background: linear-gradient(to right,#afafaf, #ffffff   ) ;opacity: 0.9; ;border-radius: 9px " )
+
+            //div.col-md-1.col-1.row(style="padding-bottom:12px;padding-left:0px")
+              button(type="button"  
+                    class="btn btn-default " 
+                    id="oncurse-dat-create" 
+                    data-toggle="modal" 
+                    data-target="#modal-edit-format"  
+                    alt="Settings"  
+                    onmouseout="this.backgroundColor='red';this.style.transform='scale(1)'"    
+                    onmouseover="this.style.transform='scale(1.2)'")
+                i(class="icon ion-md-add" )
+                a .CREAR FORMATO
+
+            div.col-md-2.col-2.row(style="padding-bottom:12px;padding-left:0px")
+              button(type="button"  
+                    class="btn btn-default " 
+                    id="oncurse-dat" 
+                    onmouseout="this.backgroundColor='red';this.style.transform='scale(1)'"    
+                    onmouseover="this.style.transform='scale(1.5)'")
+                i(class="icon ion-md-clipboard" )
+                a(href="/config/reports/config/hidtorico/?lang="+language.language class="optionMenu"  )  Movimientos
+
+            div.col-md-2.col-2.row(style="padding-bottom:12px;padding-left:0px" id="config-usuarios" )
+              button(type="button" 
+                    class="btn btn-default "  
+                    id="oncurse-dat"  
+                    onmouseout="this.backgroundColor='red';this.style.transform='scale(1)'"    
+                    onmouseover="this.style.transform='scale(1.5)'" )
+                  i(class="icon ion-ios-document")
+                  a(href="/config/report?lang="+language.language class="optionMenu"  ) Registros
+
+            div.col-md-2.col-2.row(style="padding-bottom:12px;padding-left:0px" id="config-usuarios" )
+              button(type="button" 
+                    class="btn btn-default "  
+                    id="oncurse-dat"  
+                    onmouseout="this.backgroundColor='red';this.style.transform='scale(1)'"    
+                    onmouseover="this.style.transform='scale(1.5)'" )
+                  i(class="icon ion-ios-contacts")
+                  a(href="/config/users?lang="+language.language class="optionMenu"  ) .USUARIOS
+            
+            div.col-md-2.col-2.row(style="padding-bottom:12px;padding-left:0px")
+            button(type="button"  
+                  class="btn btn-default " 
+                  id="oncurse-dat-search" 
+                  data-toggle="modal" 
+                  data-target="#modal-search"  
+                  alt="Settings"  
+                  onmouseout="this.backgroundColor='red';this.style.transform='scale(1)'"    
+                  onmouseover="this.style.transform='scale(1.5)'")
+              i(class="icon ion-md-search" )
+              
+
+
+
+  body
+    //---INICIO
+    div(class="wrapper" id="pirncipal-deft-grast")
+      
+      //--MENU LATERAL
+      nav(id="sidebar" class="no-print" hidden)
+        div(class="sidebar-header")
+      //--Page Content
+
+      //---boton asul de mi menu  
+      div(id="content" style="padding-top:10px;height: 100vh") 
+        button(type="button" id="sidebarCollapse" class="btn btn-default no-print" hidden )
+        div(class="lds-ring"  )
+        //---boton asul de mi menu  
+
+        //--INICIA BLOQUE DE CONTENIDO
+        div.row.col-12.content(style='padding-left:0px;font-size:1em;background-color:white')
+          div.col-12.col-sm-12.row(style="justify-content:center;padding-top:25px ")
+              img(src='/images/alertnc.png').img-header
+              p(style="text-align:center:color:red; !important;").nipsa N10-GMyC
+          
+          //--tabla ddond emuestro no conformidades
+          div.col-12.col-sm-12(style="margin-bottom:20px;")
+            div(id="demo" class="botones") 
+              table(id="material" class="display " style="width:100%" data-order='[[ 4, "desc" ]]' data-page-length='10')
+                thead
+                  tr
+                    th 
+                    th 
+                    th 
+                    th 
+                    th(style="text-align:center") Id
+                    th(style="text-align:center") N.Parte
+                    th(style="text-align:center") No.Orden Compra
+                    th(style="text-align:center") Total de Ingreso
+                    th(style="text-align:center") Ubicacion
+                    th(style="text-align:center") Produccion
+                    th(style="text-align:center") NG
+                    th(style="text-align:center") Total
+                    th(style="text-align:center") Fecha de ingreso
+                    th(style="text-align:center") Nota
+                    th(style="text-align:center") Status
+
+          //-----MODAL DE EDICION DE FORMATO
+          div(class="modal fade" id="modal-edit-format" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto;overflow-x:hidden")
+            div(class="modal-dialog modal-xl" role="document")
+              div(class="modal-content")
+                div(class="modal-header")
+                  div.modal-title
+                  h5(class="modal-title" id="exampleModalLabel" style="padding-left:40%") Movimientos
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+
+                div(class="modal-body")
+                  div.form-group.col-12(class="row" style="padding-left:25px") 
+
+                    //---contenedor de mis documents de mibarra lateral
+                    div.row.col-2.col-sm-2
+                      div(id="contDoc1" style="padding-right:0px;padding-left:0px;height:900px;  overflow-y:auto;overflow-x:hidden")
+                    div.form-group.col-10.row(style="padding-left:30px")
+                      form(action='/register/evento/' method='post' class="col-12 col-sm-12" form-name="form-event32")
+                        //-----ID de REGISTRO
+
+                        div.form-group(class="col-2 col-md-2"  style="padding-top:7px ;padding-bottom:0px;margin-bottom:0px  " )
+                          abbr(title=' ' id="DocumenDis"  style="color:#0A7B89" )
+                              i(class="icon ion-md-help-circle")
+
+
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:65px")
+                          input(type="number" name="idM" id="idM"  hidden).form-control
+                          input(type="number" name="idF" id="idF"  hidden).form-control
+
+                          div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                              label(style="width:100%;") Numero de parte:
+                              input(type="text" name="PartN"  autocomplete="off" id="PartN" style="background-color:white" readonly ).form-control
+                          div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                              label(style="width:100%;") No.Orden Compra:
+                              input(type="text" name="SDS"  autocomplete="off" id="SDS" style="background-color:white" readonly).form-control
+                          div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                              label(style="width:100%;") Ubicacion:
+                              input(type="text" name="UBI"  autocomplete="off" id="UBI" style="background-color:white" readonly).form-control
+
+
+
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:65px;background-color:#EBEDEF ")
+                          
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:5px")
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") SNP:
+                                input(type="text" name="SNP"  autocomplete="off" id="SNP"  style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px" )
+                                label(style="width:100%;") Disponible:
+                                input(type="text" name="TOT"  autocomplete="off" id="TOT" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") Procesado:
+                                input(type="text" name="CtdO"  autocomplete="off" id="CtdO" style="background-color:white"  readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") NG:
+                                input(type="text" name="NG"  autocomplete="off" id="NG" style="background-color:white" readonly).form-control
+
+
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:5px")
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") Produccion:
+                                input(type="text" name="PROD"  autocomplete="off" id="PROD" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") A.Recibo P1:
+                                input(type="text" name="U1"  autocomplete="off" id="U1" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") A.Recibo P2:
+                                input(type="text" name="U2"  autocomplete="off" id="U2" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") A.Recibo P3:
+                                input(type="text" name="U3"  autocomplete="off" id="U3" style="background-color:white" readonly).form-control
+
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:5px")
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") C.Verde P1:
+                                input(type="text" name="U7"  autocomplete="off" id="U7" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") C.Blanca P1:
+                                input(type="text" name="U8"  autocomplete="off" id="U8" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") I.Recibo P1:
+                                input(type="text" name="U9"  autocomplete="off" id="U9" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") I.Recibo P2:
+                                input(type="text" name="U10"  autocomplete="off" id="U10" style="background-color:white" readonly).form-control
+                          //-------------------------
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:5px")
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") I.Recibo P3:
+                                input(type="text" name="U11"  autocomplete="off" id="U11" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") Proceso P1:
+                                input(type="text" name="U4"  autocomplete="off" id="U4" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") Proceso P2:
+                                input(type="text" name="U5"  autocomplete="off" id="U5" style="background-color:white" readonly).form-control
+                            div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                label(style="width:100%;") Proceso P3:
+                                input(type="text" name="U6"  autocomplete="off" id="U6" style="background-color:white" readonly).form-control
+
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:110px")
+                          div.form-group.row(class="col-2 col-md-2" style="padding-left:25px")
+                              label(style="width:100%;") Disponible:
+                              input(type="int" name="cunt"  autocomplete="off" id="cunt" value=0 readonly).form-control
+
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
+                            label(style="width:100%;") Mover de:
+                            select(class="form-control form-control-sm" name="MD" id="MD")
+                                option(value='') Seleccione
+                                option(value='Disponible') Disponible
+                                option(value='NG') NG
+                                option(value='Produccion') Produccion
+                                option(value='Procesado') Procesado
+
+                                option(value='U1') A.Recibo P1
+                                option(value='U2') A.Recibo P2
+                                option(value='U3') A.Recibo P3
+                                option(value='U7') C.Verde P1
+                                option(value='U8') C.Blanca P1
+                                option(value='U9') I.Recibo P1
+                                option(value='U10') I.Recibo P2
+                                option(value='U11') I.Recibo P3
+                                option(value='U4') Proceso P1
+                                option(value='U5') Proceso P2
+                                option(value='U6') Proceso P3
+
+
+
+                          div.form-group.row(class="col-2 col-md-2" style="padding-left:25px")
+                              label(style="width:100%;") cantidad:
+                              input(type="int" name="CANTOT"  autocomplete="off" id="CANTOT" value=0).form-control
+
+                          div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
+                            label(style="width:100%;") Mover a:
+                            select(class="form-control form-control-sm" name="DT" id="DT")
+                                option(value='') Seleccione
+                                option(value='Disponible') Disponible
+                                option(value='NG') NG
+                                option(value='Produccion') Produccion
+                                option(value='Procesado') Procesado
+
+                                option(value='U1') A.Recibo P1
+                                option(value='U2') A.Recibo P2
+                                option(value='U3') A.Recibo P3
+                                option(value='U7') C.Verde P1
+                                option(value='U8') C.Blanca P1
+                                option(value='U9') I.Recibo P1
+                                option(value='U10') I.Recibo P2
+                                option(value='U11') I.Recibo P3
+                                option(value='U4') Proceso P1
+                                option(value='U5') Proceso P2
+                                option(value='U6') Proceso P3
+
+
+
+
+                          div.form-group.row(class="col-1 col-md-1" style="padding-left:25px;padding-top:27px")
+                              button(type="button" class="btn btn-primary" onclick="Event()" )
+                                  i(class="icon ion-ios-SAVE") 
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:0px")
+                          label(style="width:100%;") Nota:
+                          textarea(id='NOTA' name="NOTA" rows='2'  style="width:100%;padding-bottom:20px"   )
+
+
+
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:5px;padding-top:50px;;background-color:#EBEDEF")
+                          //--tabla ddond emuestro no conformidades
+                          div.col-12.col-sm-12(style="margin-bottom:20px;")
+                            div(id="demo" class="botones") 
+                              table(id="Movimientos" class="display " style="width:100%" data-order='[[ 1, "desc" ]]' data-page-length='10')
+                                thead
+                                  tr
+                                    th 
+                                    th(style="text-align:center") Id
+                                    th(style="text-align:center;background-color:#6399F2") Cantidad
+                                    th(style="text-align:center;background-color:#6399F2 ") Origen
+                                    th(style="text-align:center;background-color:#83DEF0 ") Cantidad
+                                    th(style="text-align:center;background-color:#83DEF0 ") Destino
+                                    th(style="text-align:center") Fecha
+                                    th(style="text-align:center") Nota
+
+                    div(class="modal-footer").col-12
+                      button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+
+          //-----MODAL DE CARGA DE ANEXOS
+          //div(class="modal fade" id="modal-add-anexos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-lg" role="document")
+              div(class="modal-content")
+                div(class="modal-header")
+                  div.modal-title
+                    img(src='/images//Q90.jpg' style="width:40px;")
+                  h5(class="modal-title" id="exampleModalLabel") ANEXOS
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+
+                div(class="modal-body")
+                  div(class="row")
+                    div.col-10.col-sm-10.row.hdr(style="text-align:center;")
+                      img(src='/images/Q90.jpg').img-header
+                      div.col-md-5.col-8.panel-title(style="text-align:left;") RCARGA DE ANEXOS
+                  
+                div(class="modal-footer").col-12
+                  button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+                  button(type="button" class="btn btn-primary" id="btn-report" data-dismiss="modal" ) Guardar
+
+          //-----MODAL DE BUSQUEDA
+          div(class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-sml" role="document" style="background-color:white" )
+              div(class="modal-content")
+                div(class="modal-header" style="background-color:#e6e9e9")
+                  h5(class="modal-title" id="exampleModalLabel" style="padding-left:160;;color:black") Buscar
+                  i(class=" ion ion-md-search")
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                div(class="modal-body"  )
+
+                  form(action='/search/register/' method='get' class="col-12 col-sm-12" form-name="form-search-register")
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;" hidden)
+                      label Table
+                      input( type="text" id="Tabla" name="Tabla" ).form-control
+                    
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                      div.col-md-8.col-8.row(style="justify-content:center")
+                        label FECHA INICIO
+                        input( type="date" id="DTIni" name="DTIni" ).form-control
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:10px;")
+                      div.col-md-8.col-8.row(style="justify-content:center")
+                        label FECHA FINAL
+                        input( type="date" id="DTf" name="DTf" ).form-control
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:25px;" hidden)
+                      div.form-group(class="col-8 col-md-8" style="padding-bottom:0px")
+                        select(class="form-control form-control-sm" name="stat" id="stat")
+                            option(value=' ') STATUS
+                            option(value='APROBADA') aprobada
+                            option(value='APROBACION PENDIENTE') aprPendi
+
+                    div.col-md-12.col-12.row(style="justify-content:center;padding-top:15px;padding-right:0px")
+                      button(type="button" 
+                      class="btn btn-primary" 
+                      style="background-color: blue " 
+                      onmouseover="this.style.backgroundColor = '#2471A3  ';this.style.transform='scale(1.3)'" 
+                      onmouseout="this.style.backgroundColor ='blue';this.style.transform='scale(1)'" 
+                      onclick="searchRegister()"
+                      )
+                        i(class=" ion ion-md-search")
+
+
+          //--modal de manual y password up
+          div(class="modal fade" id="MODAL-SECCION-USUARIOS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  )
+            div(class="modal-dialog modal-sml" role="document" )
+                div(class="modal-content"  )
+                    div(class="modal-header"  )
+                        h5(class="modal-title" id="exampleModalLabel" style="padding-left:100" )=user.depto+'.'+user.name
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                    div(class="modal-body" style=""   )
+                        div.col-md-12.col-12.row(style="justify-content:center;padding-bottom:15px")
+                                button(type="button"  
+                                        id="btn-actuliza-contracena-select" 
+                                        style='background-color:#CCD1D1; border-radius:10px; border-color:white; font-size:1.2em; color:white;'
+                                        onmouseover="; this.style.color = '#ffffff';this.style.transform='scale(1.2)'" 
+                                        onmouseout="; this.style.color = '#ffffff';this.style.transform='scale(1)'") 
+                                            img(src="https://www.svgrepo.com/show/50340/password.svg", alt="" title='NEW PASSWORD').logo
+
+                                button(type="button"  
+                                    id="ayuda"  
+                                    style='background-color:#CCD1D1; border-radius:10px; border-color:white; font-size:1.2em; color:white;margin-left:23px' 
+                                    onmouseover="; this.style.color = '#ffffff';this.style.transform='scale(1.2)'" 
+                                    onmouseout="; this.style.color = '#ffffff';this.style.transform='scale(1)'") 
+                                    img(src="https://cdn-icons-png.flaticon.com/256/868/868834.png", alt="" title='AYUDA').logo
+                                input(  id="INPUT-PERMIS-ADMIN" VALUE=user.admin  hidden)
+
+                        div.col-md-12.col-12.row(style="justify-content:center;padding-bottom:15px" id='section-btn-atualizar-contracena' hidden )
+                            div.col-md-8.col-8.row
+                                input(type="text" name="input-actuliza-contracena" placeholder='NUEVA CONTRASEÑA,MINIMO 6 CARACTERES SIN ESPACIOS ' autocomplete="off" id="input-actuliza-contracena"  style="background:#F0F8FF;" ).form-control
+                            button(type="button" 
+                                    id="btn-actuliza-contracena" 
+                                    style='background-color:#53A3A3; border-radius:10px; border-color:white; font-size:1.2em; color:white;'
+                                    onmouseover="this.style.backgroundColor = '#2980B9   '; this.style.color = '#ffffff';this.style.transform='scale(1.2)'" 
+                                    onmouseout="this.style.backgroundColor = '#53A3A3'; this.style.color = '#ffffff';this.style.transform='scale(1)'") 
+                                i(class="icon ion-md-thumbs-up")
+                        div(class="modal-footer").col-12
+
+          //-----MODAL DE NOTIFICACIONESOS
+          div(class="modal fade" id="modal-send-mail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-SML" role="document")
+              div(class="modal-content")
+                div(class="modal-header")
+                  div.modal-title
+                  h5(class="modal-title" id="exampleModalLabel" style="padding-left:20%") Notificaciones
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                //----------cuerpo
+                div(class="modal-body")
+                  form(action='/notify/number/part/' method='post' class="col-12 col-sm-12" form-name="form-notify")
+                    div.col-12.col-sm-12.row(style="padding-bottom:30px")
+                      input(type="number" name="idM1" id="idM1" hidden).form-control
+                      input(type="number" name="idF1" id="idF1" hidden).form-control
+                      div.col-12.col-sm-12.row(style="padding-left:30px")
+                        h5(id='h1')
+                      div.col-12.col-sm-12.row(style="padding-left:30px")
+                        h5(id='h2')
+                      div.col-12.col-sm-12.row(style="padding-left:30px")
+                        h5(id='h3')
+                      div.col-12.col-sm-12.row(style="padding-left:30px")
+                        h5(id='h4')
+
+                    div.col-12.col-sm-12.row(style="padding-bottom:30px")
+                      div.col-6.col-sm-6.row(style="padding-left:30px")
+                        div.col-10.col-sm-10.row
+                          label(style="width:100%;") PERIODO:
+                          select(class="form-control form-control-sm" name="PERIODO" id="PERIODO")
+                              option(value='0') 0 Dia
+                              option(value='1') 1 Dia
+                              option(value='2') 2 Dias
+                              option(value='3') 3 Dias
+                              option(value='4') 4 Dis
+              
+                        div.col-2.col-sm-2.row(style="padding-top:28px;padding-left:15px")
+                          button(type="button" class="btn btn-primary" onclick="FPeriodo()" )
+                              i(class="icon ion-ios-SAVE")
+
+                      div.col-6.col-sm-6.row(style="padding-left:25px")
+                        div.col-10.col-sm-10.row
+                          label(style="width:100%;") NOTIFICAR:
+                          select(class="form-control form-control-sm" name="NOTIFICAR" id="NOTIFICAR")
+                              option(value='') Seleccione
+                              option(value='g.torres@nipsa.com.mx') E10.Gerardo Torres 
+                              option(value='n.sanchez@nipsa.com.mx') E10.Nancy Arteaga Sanchez 
+                              option(value='c.gutierrez@nipsa.com.mx') N10.Camila Gutierrez Martinez 
+                              option(value='x.tovar@nipsa.com.mx') N10.Ximena Tovar Escamilla  
+                              option(value='m.osornio@nipsa.com.mx') N10.Maximiliano Garcia Osornio  
+
+
+                        div.col-2.col-sm-2.row(style="padding-top:28px;padding-left:15px")
+                            button(type="button" class="btn btn-primary" onclick="MNotfy()" )
+                                i(class="icon ion-ios-SAVE") 
+
+                    div.col-12.col-sm-12.row(style="padding-left:5px;;background-color:#EBEDEF")
+                    //--tabla ddond emuestro no conformidades
+                    div.col-12.col-sm-12(style="margin-bottom:20px;")
+                      div(id="demo" class="botones") 
+                        table(id="tabNFy" class="display " style="width:70%" data-order='[[ 1, "desc" ]]' data-page-length='10')
+                          thead
+                            tr
+                              th 
+                              th(style="text-align:center") 
+                              th(style="text-align:center") Correo
+
+                //----tfooter
+                div(class="modal-footer").col-12
+                  button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+                  //button(type="button" class="btn btn-primary" id="btn-report" data-dismiss="modal" ) Guardar
+
+          //--------Mondal para print 
+          div(class="modal fade" id="ModalPrint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div(class="modal-dialog modal-sml" role="document")
+              div(class="modal-content")
+                //--head
+                div(class="modal-header")
+                  div.modal-title
+                    div.col-12.col-md-12.modal-title( style="padding-left:110px ")
+                      h4(style="width:100%;") PRINT
+                        i(class="icon ion-ios-print" style="padding-left:11px")
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                //--body
+                div(class="modal-body" )
+                  div(class="row")
+                    //------confi
+                    div.col-12.col-md-12.row
+                      div.col-11.col-md-11.row
+                      div.col-1.col-md-1.row
+                        button(type="button"   onclick="settingPrint()" ) 
+                          i(class="icon ion-ios-settings") 
+                    //------confi
+                    
+                    //------secion de configuracion de impresora
+                    div.col-12.col-md-12(id="div-print" hidden)
+                      div.col-12.col-md-12( style=" text-align:center ")
+                        h4(style="width:100%;") CONFIGURACION DE IMPRESORA:
+                      form(action='/config/print/ifet/con/' method='put' class="col-12 col-sm-12" form-name="form-print")
+                        div.form-group(class="col-12 col-md-12" style ="background-color:#DAE2E3;padding-right:0;padding-left:0px;")
+                          div.form-group(class="col-8 col-md-8" style='padding-right:0;padding-left:5px;')
+                              label(style="width:100%;") ZPL:
+                              textarea(id='ZPL' name="ZPL" rows='8'  style="width:100%;"   )
+                          div.form-group(class="col-4 col-md-4" style='padding-right:5;padding-left:5px;')
+                            label(style="width:100%;") IP:
+                            input(type="text" name="IPPrint" placeholder="" autocomplete="off" id="IPPrint" ).form-control
+                            label(style="width:100%;") PUERTO:
+                            input(type="number" name="PORT" placeholder="" autocomplete="off" id="PORT" ).form-control
+                            div.form-group(class="col-12 col-md-12" style="padding-top:30px")
+                              div.form-group(class="col-9 col-md-9")
+                              div.form-group(class="col-2 col-md-2")
+                                button(type="button" class="btn btn-primary"  onclick="UpConfyPrint()" ) 
+                                  i(class="icon ion-ios-SAVE") 
+                          div(class="label-image" )
+                            img( id="label")
+                    //------secion de configuracion de impresora
+        
+                    //-----seccion data print
+                    div.col-12.col-md-12.row
+                      form(action='/register/prin/label' method='post' class="col-12 col-sm-12" form-name="form-registerPrint")
+                        div.form-group.row(class="col-12 col-md-12" )
+                          div.col-12.col-sm-12.row
+                            div.col-12.col-sm-12.row(hidden)
+                              label id 
+                              input(type="number" name="idDAT" placeholder="" autocomplete="off" id="idDAT" ).form-control
+                              label NPart 
+                              input(type="text" name="NPart" placeholder="" autocomplete="off" id="NPart" ).form-control
+                              label Cript 
+                              input(type="text" name="Cript" placeholder="" autocomplete="off" id="Cript" ).form-control
+                              label MoDel 
+                              input(type="text" name="MoDel" placeholder="" autocomplete="off" id="MoDel" ).form-control
+                              label FeLL 
+                              input(type="text" name="FeLL" placeholder="" autocomplete="off" id="FeLL" ).form-control
+                              label SDS 
+                              input(type="text" name="SDS1" placeholder="" autocomplete="off" id="SDS1" ).form-control
+
+                          div.col-12.col-sm-12.row(style="padding-left:55px")
+                            h5(id='p1' style="width:100%;") 
+                            h5(id='p2' style="width:100%;") 
+                            h5(id='p3' style="width:100%;") 
+                            h5(id='p4' style="width:100%;") 
+                            h5(id='p5' style="width:100%;") 
+
+                          div.col-12.col-sm-12.row(style="padding-top:55px;padding-left:55px")
+                            div.col-6.col-sm-6.row
+                              div.col-12.col-sm-12.row
+                                label Disponible 
+                                input(type="text" name="totCAN" placeholder="" autocomplete="off" id="totCAN"  readonly).form-control
+                              div.col-12.col-sm-12.row(style="padding-top:15px")
+                                label N.Etiquetas disponibles 
+                                input(type="number" name="NEtf" placeholder="" autocomplete="off" id="NEtf" value=0 readonly).form-control
+                            div.col-6.col-sm-6.row
+                              div.col-12.col-sm-12.row
+                                label Cantidad
+                                input(type="number" name="CantpRI" placeholder="" autocomplete="off" id="CantpRI"  value=0).form-control
+                              div.col-12.col-sm-12.row(style="padding-top:15px")
+                                label Imprimir Etiquetas
+                                input(type="number" name="PrintLabelET" placeholder="" autocomplete="off" id="PrintLabelET"  value=0).form-control
+                          div.col-12.col-sm-12.row
+                            div.col-5.col-sm-5.row
+                            div.col-2.col-sm-2.row
+                              div.form-group(class="col-12 col-md-12" style="padding-top:30px")
+                                button(type="button" class="btn btn-primary"  onclick="printLabel()" ) 
+                                  i(class="icon ion-ios-print") 
+                //-----seccion data print
+                div(class="modal-footer").col-12.row
+                  button(type="button" class="btn btn-primary" data-dismiss="modal"  ) Cerrar
+
+          //-----------------pdf modal
+          div(class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel")
+            div(class="modal-dialog modal-xl" style="max-width: 80%;" role="document")
+                div(class="modal-content")
+                    div(class="row" style="padding-rigth:0px;padding:0px;left:0px;").col-12
+                        embed(src="", type="" height="850px" width="100%")#pdfFile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //---CAMBIO POR CARGA DE INVENTARIO
+    div(class="wrapper" id="ControlTrasfer" hidden)
+      form(action='/int/regs/Scann/' method='post' class="col-12 col-sm-12" form-name="form-Scan")
+        div(class="row panel" style="padding:10px;px;").col-12
+
+          div.col-12.row#typeM
+
+            div.form-group(class="col-2 col-md-2"  style="padding-top:7px ;padding-bottom:0px;margin-bottom:0px  " )
+              abbr(title=' ' id="DocumenDis1"  style="color:#0A7B89" )
+                  i(class="icon ion-md-help-circle")  
+
+            div.col-12.panel(style="justify-content:center;padding:5px;margin-top:10px;margin-left:10px; border: 10px solid black;" id='panelEstatus' )
+              div.col-md-12.col-12.row(style="justify-content:center" )
+                h1 CONCEPTOS
+              
+              //---CAMPOS DONDE SE REGISTRAN LOS DATOS
+              div.col-md-12.col-12.row(style="justify-content:center;;padding-bottom:75px" )
+                div.col-md-6.col-6.row
+                  input(type="text" name="qrCode" placeholder="Scanea el codigo QR" autocomplete="off" id="qrCode" style="width: 100%;height:150%;text-align:center;background-color:#fef9e7;font-size:2em " ).form-control.col-12
+
+              //---ocultor
+              div.col-md-12.col-12.row(style="justify-content:center;text-align:center; " id="ProcessScannDef" hidden)
+
+                div.col-md-12.col-12.row(style="justify-content:center;text-align:center;padding-bottom:55px "  )
+                  div.col-md-5.col-5.row(style="justify-content:center;text-align:center;border: solid;background-color:#e7f4f6" )
+                    h5(id='VDP1' style="width:100%;") 
+                    h5(id='VDP2' style="width:100%;") 
+                    h5(id='VDP3' style="width:100%;") 
+                    h5(id='VDP4' style="width:100%;") 
+                    h5(id='VDP5' style="width:100%;") 
+
+                //---CAMPOS DONDE SE REGISTRAN LOS DATOS
+                div.form-group.row(class="col-12 col-md-12" style="padding-left:50px;border: solid;background-color:#e7f4f6")
+                  div.form-group.row(class="col-12 col-md-12" style="padding-left:110px;padding-bottom:0px")
+                    
+                    div.form-group.row(class="col-2 col-md-2" style="padding-left:25px")
+                        label(style="width:100%;;font-size:2em;text-align:center") Disponible:
+                        input(type="int" name="Dispcunt"  autocomplete="off" id="Dispcunt" value=0 readonly  style="width: 100%;height:60%;text-align:center;font-size:2em;background-color:#ffffff " ).form-control
+
+                    div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
+                      label(style="width:100%;;font-size:2em;text-align:center") Mover de:
+                      select(class="form-control form-control-sm" name="DREMmD" id="DREMmD" style="width: 100%;height:60%;text-align:center ;font-size:2em" )
+                          option(value='') Seleccione
+                          option(value='Disponible') Disponible
+                          option(value='NG') NG
+                          option(value='Produccion') Produccion
+                          option(value='Procesado') Procesado
+                          option(value='U1') A.Recibo P1
+                          option(value='U2') A.Recibo P2
+                          option(value='U3') A.Recibo P3
+                          option(value='U7') C.Verde P1
+                          option(value='U8') C.Blanca P1
+                          option(value='U9') I.Recibo P1
+                          option(value='U10') I.Recibo P2
+                          option(value='U11') I.Recibo P3
+                          option(value='U4') Proceso P1
+                          option(value='U5') Proceso P2
+                          option(value='U6') Proceso P3
+
+                    div.form-group.row(class="col-2 col-md-2" style="padding-left:25px")
+                        label(style="width:100%;;font-size:2em;text-align:center") Cantidad:
+                        input(type="int" name="CRANTdt"  autocomplete="off" id="CRANTdt" value=0 style="width: 100%;height:60%;text-align:center;font-size:2em "  ).form-control
+
+                    div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
+                      label(style="width:100%;;font-size:2em;text-align:center") Mover a:
+                      select(class="form-control form-control-sm" name="DDTT" id="DDTT"  style="width: 100%;height:60%;text-align:center;font-size:2em" )
+                          option(value='') Seleccione
+                          option(value='Disponible') Disponible
+                          option(value='NG') NG
+                          option(value='Produccion') Produccion
+                          option(value='Procesado') Procesado
+                          option(value='U1') A.Recibo P1
+                          option(value='U2') A.Recibo P2
+                          option(value='U3') A.Recibo P3
+                          option(value='U7') C.Verde P1
+                          option(value='U8') C.Blanca P1
+                          option(value='U9') I.Recibo P1
+                          option(value='U10') I.Recibo P2
+                          option(value='U11') I.Recibo P3
+                          option(value='U4') Proceso P1
+                          option(value='U5') Proceso P2
+                          option(value='U6') Proceso P3
+
+
+
+                    //----------------botones de accion
+                    div.form-group.row(class="col-1 col-md-1" style="padding-left:25px;padding-top:50px")
+                      button(type="button" class="btn btn-success col-12" id="btn-entrada"  style="width: 100%;height:100%;text-align:center " onclick="enntScann()")
+                        i(class="icon ion-ios-barcode" style=";font-size:3em")
+
+
+                  div.form-group.row(class="col-12 col-md-12" style="padding-left:0px;justify-content:center;")
+                    label(style="width:100%;;text-align:center;;font-size:2em") Nota:
+                    textarea(id='NOTANew' name="NOTANew" rows='2'  style="width:70%;padding-bottom:20px" )
+
+                //------datos de referencia
+                div.form-group(class="col-12 col-md-12" hidden)
+                  label idRefFF
+                  input(type="text" name="idRefFF"  id="idRefFF" ).form-control.col-12
+                  label Id
+                  input(type="text" name="IId"  id="IId" ).form-control.col-12
+                  label Disponible
+                  input(type="text" name="Disponible1"  id="Disponible1" ).form-control.col-12
+                  label Procesado
+                  input(type="text" name="Procesado1"  id="Procesado1" ).form-control.col-12
+                  label Produccion
+                  input(type="text" name="Produccion1"  id="Produccion1" ).form-control.col-12
+                  label NG
+                  input(type="text" name="NG1"  id="NG1" ).form-control.col-12
+                  label UBI1
+                  input(type="text" name="UBI11"  id="UBI11" ).form-control.col-12
+                  label UBI2
+                  input(type="text" name="UBI21"  id="UBI21" ).form-control.col-12
+                  label UBI31
+                  input(type="text" name="UBI31"  id="UBI31" ).form-control.col-12
+                  label UBI41
+                  input(type="text" name="UBI41"  id="UBI41" ).form-control.col-12
+                  label UBI51
+                  input(type="text" name="UBI51"  id="UBI51" ).form-control.col-12
+                  label UBI61
+                  input(type="text" name="UBI61"  id="UBI61" ).form-control.col-12
+                  label UBI71
+                  input(type="text" name="UBI71"  id="UBI71" ).form-control.col-12
+                  label UBI81
+                  input(type="text" name="UBI81"  id="UBI81" ).form-control.col-12
+                  label UBI91
+                  input(type="text" name="UBI91"  id="UBI91" ).form-control.col-12
+                  label UBI101
+                  input(type="text" name="UBI101"  id="UBI101" ).form-control.col-12
+                  label UBI111
+                  input(type="text" name="UBI111"  id="UBI111" ).form-control.col-12
+            
+            
+
+
+
+                //------guardar def botones de accion
+                div(class="modal-footer").col-12
+                      button(type="button" class="btn btn-secondary"  onclick='location.reload()') limpiar
+                      button(type="button" class="btn btn-primary" id="btn-CONCEPTO" data-dismiss="modal" disabled) Guardar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //-------SECTION FOOTER
+  footer 
+    div.col-md-12.col-12.row(style="font-size: em;  text-align:center "  class="def")
+        div.col-md-12.col-12.row(style="font-size: em; text-align:center " class="def")
+            div.col-md-12.col-12row(style=" text-align:center ;color:black")  CONTACTO : 
+                //--i(class="icon ion-md-contact")
+                //--h6 EMAIL: i.s@nipsa.com.mx  
+                a(href="mailto:e.sevilla@nipsa.com.mx?subject=CDNC &cc=je.resendiz@nipsa.com.mx&body=") Enviar mail
+                    i(class="icon ion-md-mail")
+
+
+
+script(src='/js/jquery/jquery-3.3.1.min.js' type="text/javascript")
+script(src='/js/bootstrap/jquery/popper.min.js' type="text/javascript")
+script(src='/js/bootstrap/bootstrap.min.js' type="text/javascript")
+script(src='/js/calendar/lib/moment.min.js' type="text/javascript")
+script(src='/js/calendar/lib/locale/es.js' type="text/javascript")
+script(src='/js/calendar/lib/locale/ja.js' type="text/javascript")
+script(src='/js/datatables/dataTables.min.js' type="text/javascript")
+script(src='/js/datatables/dataTables.responsive.min.js' type="text/javascript")
+script(src='/js/datetime/tempusdominus-bootstrap-4.min.js' type="text/javascript")
+script(src='/js/datatables/jszip/jszip.min.js' type="text/javascript")
+script(src='/js/datatables/pdfmake/vfs_fonts.js' type="text/javascript")
+script(src='/js/datatables/buttons/buttons.html5.min.js' type="text/javascript")
+script(src='/js/validation/bootstrap-notify.min.js' type="text/javascript")
+script(src='/js/production/cropme.js' type="text/javascript") 
+script(src='/js/jquery/jquery.form.min.js' type="text/javascript")
+script(src='/js/production/production.js' type="text/javascript")

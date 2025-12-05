@@ -1,0 +1,16 @@
+
+for i in datos
+    embed(src=i.documentos  width="150" height="150" )
+    
+    div(class="col-8 col-md-8" style="font-size:20px;padding-top:15px;padding-bottom:15px; text-align:center")
+        
+        label(href=i.documentos  class="openPDF")=i.descripcion 
+        br
+        i(class="icon ion-md-eye"  
+        href=i.documentos 
+        class="openPDF" 
+        onmouseover="; this.style.color = 'blue'"  
+        onmouseout=" this.style.color = 'black'"
+        ).logo
+
+

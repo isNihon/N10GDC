@@ -1,0 +1,17 @@
+@media (max-width:480px){
+
+    table.dataTable tbody tr{
+      font-size:0.9em!important;
+    }
+  
+  }
+
+  .ion-md-trash{
+    color:#eb2f06;
+    font-size: 1.7em;
+  }
+  .ion-md-trash:hover{
+    color: #dff9fb;
+  }
+
+

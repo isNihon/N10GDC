@@ -1,0 +1,161 @@
+link(rel='stylesheet', href='/css/production/operators.css')  
+div(class="row panel").col-12
+    div.col-12.col-sm-12.row.hdr(style="text-align:center;")
+        div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
+            div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
+
+                h1 USUARIOS
+                i(
+                    type="button"
+                    style="color:green"
+                    data-toggle="modal"
+                    data-target="#modalUsers"
+                    alt="Settings"
+                    class="btn btn-default"
+                    id="btn-add-User"
+                    onmouseover="this.style.transform='scale(3)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                    title="¡ADD USER!"
+                    class="icon ion-ios-add")
+
+    //-----tabla donde se listan mis usuarios
+    div.col-12.col-sm-12(style="margin-bottom:20px;")
+        div(id="demo" class="botones")
+            table(id="material" class="display responsive nowrap" style="width:100%" data-order='[[ 2, "asc" ]]' data-page-length='10')
+                thead
+                    tr
+                        th
+                        th
+                        th
+                        th(style="text-align:center" ) ID
+                        th(style="text-align:center" ) Nombre
+                        th(style="text-align:center" ) Usuario
+                        th(style="text-align:center" ) Perfil
+                        th(style="text-align:center" ) Puesto
+                        th(style="text-align:center" ) Correo
+                        th(style="text-align:center" ) Depto
+                        th(style="text-align:center" ) Password
+                        th(style="text-align:center" ) ON
+
+    //------modal de mi formulario
+    div(class="modal fade" id="modalUsers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        div(class="modal-dialog modal-sml" role="document")
+            div(class="modal-content")
+                div(class="modal-header")
+                    div.modal-title
+                        img(src='/images/add2.jpg' style="width:40px;")
+                    h5(class="modal-title" id="exampleModalLabel" style="padding-left:70px") Nuevo Usuario
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                    
+                div(class="modal-body")
+                    div(class="row")
+                        div.col-12.col-md-12
+                            form(action='/config/user' method='post' class="col-12 col-sm-12" form-name="form-user")
+                                div.form-group(class="col-12 col-md-12" hidden)
+                                    button(type="button"  id='cleardatoUser'  ) LIMPIAR
+                                    //-----ID-CONTROL-UPDEP
+                                    input(type="number" name="idControl"  id="idControl"  hidden).form-control
+
+                                div.form-group(class="col-5 col-md-5")
+                                    label(style="width:100%;") Usuario:
+                                    input(type="number" name="number" min="0" placeholder="" autocomplete="off" id="number").form-control
+                                
+                                div.form-group(class="col-5 col-md-5")
+                                    label(style="width:100%;") Contraseña:
+                                    input(type="text" name="password" placeholder="" autocomplete="off" id="inPassword" ).form-control
+                                
+                                div.form-group.col-2.col-md-2
+                                    label(style="width:100%;color:white;") Update 
+                                    button(type="button" class="btn btn-primary ion-md-sync" id="btn-password" )
+                                div.form-group(class="col-12 col-md-12")
+                                    label(style="width:100%;") Nombre:
+                                    input(type="text" name="name" placeholder="" autocomplete="off" id="inName" ).form-control
+
+                                div.form-group(class="col-6 col-md-6")
+                                    label(style="width:100%;") Puesto
+                                    input(type="text" name="position" placeholder="" autocomplete="off" id="position" ).form-control
+
+                                div.form-group(class="col-6 col-md-6")
+                                    label(style="width:100%;") Correo:
+                                    input(type="email" name="email" placeholder="" autocomplete="off" id="email" ).form-control
+
+                                div.form-group(class="col-4 col-md-4" )
+                                    label(style="width:100%;") Departamento
+                                    select( id="depto" class="form-control form-control-sm" data-live-search="true"  name="depto")
+                                        option(value='') Seleccione Uno
+                                        option(value='A10') A10
+                                        option(value='A20') A20
+                                        option(value='C10') C10
+                                        option(value='P20') P20
+                                        option(value='P30') P30
+                                        option(value='G10') G10
+                                        option(value='P50') P50
+                                        option(value='E10') E10
+                                        option(value='P10') P10
+                                        option(value='P20') P20
+                                        option(value='P30') P30
+                                        option(value='P50') P50
+                                        option(value='Q10') Q10
+                                        option(value='Q90') Q90
+                                        option(value='S10') S10
+                                        option(value='J10') J10
+                                        option(value='M10') M10
+                                        option(value='M30') M30
+                                        option(value='T10') T10
+                                        option(value='F10') F10
+                                        option(value='V10') v10
+
+                                div.form-group(class="col-6 col-md-6")
+                                    div(class="my-1")
+                                        div(class="custom-control custom-checkbox mr-sm-2")
+                                            input(type="checkbox" class="custom-control-input" name="admin" id="customControlAutosizing1")
+                                            label(class="custom-control-label" for="customControlAutosizing1") Admin
+
+                                //-----accesos pendientes por asignar
+                                
+                                div.form-group(class="col-12 col-md-12")
+                                div.form-group(class="col-12 col-md-12" style="background-color:#DBDBDB;text-align:center; ")
+                                    strong ACCESO A INVENTAREO
+                                div.form-group(class="col-12 col-md-12")
+                                    div.form-group(class="col-3 col-md-3")
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces1" id="acces1")
+                                                label(class="custom-control-label" for="acces1") acces1
+
+                                    div.form-group(class="col-3 col-md-3")
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces2" id="acces2")
+                                                label(class="custom-control-label" for="acces2") acces2
+
+                                    div.form-group(class="col-3 col-md-3")
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces3" id="acces3")
+                                                label(class="custom-control-label" for="acces3") acces3
+
+                                    div.form-group(class="col-3 col-md-3")
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces4" id="acces4")
+                                                label(class="custom-control-label" for="acces4") acces4
+
+                                    div.form-group(class="col-3 col-md-3")
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces5" id="acces5")
+                                                label(class="custom-control-label" for="acces5") acces5
+
+                                    div.form-group(class="col-3 col-md-3" hidden)
+                                        div(class="my-1")
+                                            div(class="custom-control custom-checkbox mr-sm-2")
+                                                input(type="checkbox" class="custom-control-input" name="acces6" id="acces6")
+                                                label(class="custom-control-label" for="acces6") acces6
+                                br
+                                div(class="modal-footer").col-12
+                                    button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+                                    button(type="button" class="btn btn-primary" id="btn-user" data-dismiss="modal" ) Guardar
+                                    
+    script(src='/js/users/users.js' type="text/javascript")
