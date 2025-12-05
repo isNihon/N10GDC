@@ -5,8 +5,10 @@ $(document).ready(function () {
     var urlLanguage = '../js/datatables/languaje/Spanish.json'
     window.tablabel= $('#table-labels').DataTable( {
 
-        scrollY: true,
-        scrollY: '50vh',
+        scrollY: '40vh',
+        scrollX: true,
+        responsive: false,
+        autoWidth: false,
 
         language: {
         url: urlLanguage
@@ -23,19 +25,21 @@ $(document).ready(function () {
             'orderable': false,
             data: null,
             defaultContent: '',
-            width:'1%'
+            width:'30px'
         },
     
-        { data: 'Id' },
-        //{ data: 'idM' },
-        { data: 'NP' },
-        { data: 'DSC' },
-        { data: 'MDL' },
-        { data: 'SDS' },
-        //{ data: 'SRL' },
-        { data: 'SNP' },
-        { data: 'date' },
-        //{ data: 'userId' },
+        { data: 'Id', width: '50px' },
+        { data: 'idDetalle', width: '60px' },
+        { data: 'Part', width: '120px' },
+        { data: 'Desc', width: '150px' },
+        { data: 'Modelo', width: '80px' },
+        { data: 'Cant', width: '60px' },
+        { data: 'Dnote', width: '80px' },
+        { data: 'lote', width: '70px' },
+        { data: 'Consc', width: '80px' },
+        { data: 'status', width: '70px' },
+        { data: 'Fecha', width: '130px' },
+        { data: 'User', width: '70px' },
         ] ,
         rowCallback:function(row,data){
             for (var i=0;i<=14;i++){
@@ -131,8 +135,10 @@ $(document).ready(function () {
     var urlLanguage = '../js/datatables/languaje/Spanish.json'
     window.tabMov= $('#Table-Mov').DataTable( {
 
-        scrollY: true,
         scrollY: '40vh',
+        scrollX: true,
+        responsive: false,
+        autoWidth: false,
 
         language: {
         url: urlLanguage
@@ -149,15 +155,18 @@ $(document).ready(function () {
             'orderable': false,
             data: null,
             defaultContent: '',
-            width:'1%'
+            width:'30px'
         },
     
-        { data: 'Id'},
-        { data: 'cunt'},
-        { data: 'MD' },
-        {data:'CANTOT'},
-        {data: 'DT'},
-        {data: 'date'},
+        { data: 'Id', width: '50px'},
+        { data: 'idDetalle', width: '60px'},
+        { data: 'NumPart', width: '120px'},
+        {data:'CantIni', width: '80px'},
+        {data: 'CantMov', width: '80px'},
+        {data: 'CantFin', width: '80px'},
+        {data: 'Destino', width: '80px'},
+        {data: 'Fecha', width: '130px'},
+        {data: 'User', width: '70px'},
         ] ,
         rowCallback:function(row,data){
             for (var i=0;i<=14;i++){

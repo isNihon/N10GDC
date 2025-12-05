@@ -285,6 +285,23 @@ app.get('/tables/users',isLoggedIn,  function(req, res){
                 }
             })   
         })
+    
+    //obtener el último consecutivo usado para un registro de DETALLE
+    app.get('/get/last/consecutivo/',isLoggedIn,  function(req, res){
+        var idDetalle = req.query.idDetalle;
+        // Buscar el último consecutivo en la tabla Labels para este idDetalle
+        var query = "SELECT TOP 1 Consc FROM Labels WHERE idDetalle = @idDetalle ORDER BY CAST(Consc AS INT) DESC";
+        db.query(query, {idDetalle:[TYPES.Int, idDetalle]}, (err, result) => {
+            if (err) {
+                console.log(err);
+                res.send({consecutivo: 0});
+            } else if (result.length > 0) {
+                res.send({consecutivo: parseInt(result[0].Consc) || 0});
+            } else {
+                res.send({consecutivo: 0});
+            }
+        })   
+    })
 //----------------------------------------------------------print and notfy
 
 
@@ -308,7 +325,7 @@ app.get('/config/reports/config/hidtorico/', isLoggedIn,function(req, res){
     //---tabla de etiquetas
     app.get('/tables/label/history/',  function(req, res){
 
-        var query = "select top 1000 * FROM LabelsPrint "
+        var query = "SELECT Labels.Id, Labels.idDetalle, Labels.Part, Labels.[Desc], Labels.Modelo, Labels.Cant, Labels.Dnote, Labels.lote, Labels.Consc, Labels.status, ISNULL(CONVERT(VARCHAR(20), Labels.[Date], 120), '') as Fecha, Labels.[User] FROM Labels ORDER BY Labels.Id DESC"
         if(req.query.tp==0){
         }else if(req.query.tp==1){
             query=req.query.vard
@@ -328,7 +345,7 @@ app.get('/config/reports/config/hidtorico/', isLoggedIn,function(req, res){
     //---tabla de movimientos
     app.get('/tables/movimient/history/',  function(req, res){
 
-        var query = "select top 1000 * FROM eventos  "
+        var query = "SELECT Movimientos.Id, Movimientos.idDetalle, Movimientos.NumPart, Movimientos.CantIni, Movimientos.CantMov, Movimientos.CantFin, Movimientos.Destino, ISNULL(CONVERT(VARCHAR(20), Movimientos.Fecha, 120), '') as Fecha, Movimientos.[User] FROM Movimientos ORDER BY Movimientos.Id DESC"
 
         if(req.query.tp==0){
         }else if(req.query.tp==1){
@@ -374,6 +391,64 @@ app.get('/Get/date/val/Detall/',  function(req, res){
             }
         })   
     })
+
+//---Validar etiqueta QR escaneada
+app.get('/validate/label/qr', isLoggedIn, function(req, res){
+    var qrCode = req.query.qrCode;
+    var idDetalle = req.query.idDetalle;
+    
+    // Parsear el QR: NumParte,Lote,Cantidad,Consecutivo
+    var qrParts = qrCode.split(',');
+    
+    if(qrParts.length !== 4){
+        return res.send({status:'error', message:'Formato de QR inválido. Debe ser: NumParte,Lote,Cantidad,Consecutivo'});
+    }
+    
+    var numParte = qrParts[0].trim();
+    var lote = qrParts[1].trim();
+    var cantidad = qrParts[2].trim();
+    var consecutivo = qrParts[3].trim();
+    
+    // Buscar la etiqueta en la tabla Labels
+    var query = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle";
+    
+    db.query(query, {
+        numParte: [TYPES.VarChar, numParte],
+        lote: [TYPES.VarChar, lote],
+        cantidad: [TYPES.Int, parseInt(cantidad)],
+        consecutivo: [TYPES.VarChar, consecutivo],
+        idDetalle: [TYPES.Int, parseInt(idDetalle)]
+    }, (err, result) => {
+        if(err){
+            console.log(err);
+            return res.send({status:'error', message:'Error al validar etiqueta'});
+        }
+        
+        if(result.length === 0){
+            return res.send({status:'error', message:'Etiqueta no encontrada en el sistema'});
+        }
+        
+        var etiqueta = result[0];
+        
+        // Verificar que el estatus sea 'Print'
+        if(etiqueta.status !== 'Print'){
+            return res.send({status:'error', message:'Esta etiqueta ya ha sido utilizada. Estatus actual: ' + etiqueta.status});
+        }
+        
+        // Etiqueta válida
+        res.send({
+            status:'ok', 
+            message:'Etiqueta válida',
+            etiqueta: {
+                id: etiqueta.Id,
+                numParte: etiqueta.Part,
+                lote: etiqueta.lote,
+                cantidad: etiqueta.Cant,
+                consecutivo: etiqueta.Consc
+            }
+        });
+    });
+});
 
 
 

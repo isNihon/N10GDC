@@ -106,9 +106,10 @@ module.exports = function (passport) {
             db.query('select * from users where [user] = @name and [disabled]=1', usuario, (err, user) => {
                 if (err) {
                     console.log(err)
+                    return done(null, false, req.flash('loginMessage', 'Error en la base de datos.'));
                 }
                 //console.log(user)
-                if (user.length > 0) {
+                if (user && user.length > 0) {
                     if (user[0].password == password){
                         return done(null, user[0]); 
                     }   

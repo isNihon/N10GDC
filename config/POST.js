@@ -150,6 +150,7 @@ app.post('/signup', passport.authenticate('local-signup', {
         FF:[TYPES.NVarChar, req.body.FF],
         Nivel:[TYPES.NVarChar, req.body.Nivel],
         Ubicacion:[TYPES.NVarChar, req.body.Ubicacion],
+         fechaExp:[TYPES.NVarChar, req.body.fechaExp],
         Cantidad:[TYPES.Int,req.body.Cant],
         updateDate:[TYPES.NVarChar,tiempo],
         userId:[TYPES.Int,req.user[0].Id],
@@ -164,7 +165,7 @@ app.post('/signup', passport.authenticate('local-signup', {
         var query = "insert into DETALLE values "
         query=query+"(@idForm,@FPO,@FF,@Nivel,@Ubicacion,@Cantidad,@updateDate"
         query=query+",@userId,@SDS,@PRECIO,@PROVEEDOR,@COLOR,@UM"
-        query=query+",0,0,@Cantidad,0,0,0,0,0,@SDC,' ',0,0,0,0,0,0,0,0,0)"
+        query=query+",0,0,@Cantidad,0,0,0,0,0,@SDC,' ',0,0,0,0,0,0,0,0,0,@fechaExp,@Cantidad,@Cantidad,0,0);"
         query=query+"; SELECT SCOPE_IDENTITY() as 'id'; "
         
         
@@ -418,26 +419,50 @@ app.post('/signup', passport.authenticate('local-signup', {
     app.post('/register/prin/label',isLoggedIn, function (req, res) {
         var date = new Date()
         var tiempo = newDate(date)
+        
+        // Formatear lote como YYMMDD
+        var year = date.getFullYear().toString().slice(-2);
+        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+        var day = ('0' + date.getDate()).slice(-2);
+        var lote = year + month + day;
+        
+        // Obtener consecutivo del cuerpo de la petición
+        var consecutivo = req.body.Consecutivo || '0001';
+        
         var values = {
-        idM:[TYPES.Int, req.body.idDAT],
-        NP:[TYPES.NVarChar, req.body. NPart],
-        DSC:[TYPES.NVarChar, req.body.Cript],
-        MDL:[TYPES.NVarChar, req.body.MoDel],
-        SDS:[TYPES.NVarChar, req.body.SDS1],
-        SRL:[TYPES.NVarChar, "000-0000-000"],
-        SNP:[TYPES.Int, req.body.CantpRI],
-        date:[TYPES.NVarChar,tiempo],
-        userId:[TYPES.Int,req.user[0].Id]
+            Part: [TYPES.VarChar, req.body.NPart],
+            Desc: [TYPES.VarChar, req.body.Cript],
+            Modelo: [TYPES.VarChar, req.body.MoDel],
+            Cant: [TYPES.Int, req.body.CantpRI],
+            Dnote: [TYPES.VarChar, req.body.Dnote],
+            lote: [TYPES.VarChar, lote],
+            Consc: [TYPES.VarChar, consecutivo],
+            status: [TYPES.VarChar, 'Print'],
+            User: [TYPES.VarChar, req.user[0].user],
+            idDetalle: [TYPES.Int, req.body.idDetalle]
         }
 
-        var query = "insert into LabelsPrint values (@idM,@NP,@DSC,@MDL,@SDS,@SRL,@SNP,@date,@userId) ";
-        db.query(query, values ,  (err,valor) => {
+        var query = "INSERT INTO Labels (Part, [Desc], Modelo, Cant, Dnote, lote, Consc, [status], [User], idDetalle) VALUES (@Part, @Desc, @Modelo, @Cant, @Dnote, @lote, @Consc, @status, @User, @idDetalle)";
+        db.query(query, values ,  (err, valor) => {
             if (err) {
                 console.log(err);
+                res.send({status:'error', mensage:'Error al guardar etiqueta'})
             }   
             else {
-                
-                res.send({status:'ok', mensage:'Datos agregados'})
+                // Descontar de CantStock después de insertar la etiqueta
+                var updateValues = {
+                    idDetalle: [TYPES.Int, req.body.idDetalle],
+                    cantDescuento: [TYPES.Int, req.body.CantpRI]
+                };
+                var updateQuery = "UPDATE DETALLE SET CantStock = CantStock - @cantDescuento WHERE Id = @idDetalle AND CantStock >= @cantDescuento";
+                db.query(updateQuery, updateValues, (errUpdate, valUpdate) => {
+                    if (errUpdate) {
+                        console.log(errUpdate);
+                        res.send({status:'error', mensage:'Error al actualizar CantStock'})
+                    } else {
+                        res.send({status:'ok', mensage:'Datos agregados'})
+                    }
+                });
             } 
         });
 
@@ -538,6 +563,360 @@ app.post('/signup', passport.authenticate('local-signup', {
             }
         });
     }
+
+
+    //---Validar etiqueta escaneada
+    app.post('/validate/label', isLoggedIn, function (req, res) {
+        var qrCode = req.body.qrCode;
+        var idDetalle = req.body.idDetalle;
+        
+        if(!qrCode || !idDetalle){
+            return res.send({status:'error', message:'Datos incompletos'});
+        }
+        
+        var qrParts = qrCode.split(',');
+        
+        if(qrParts.length !== 4){
+            return res.send({status:'error', message:'Formato de QR inválido. Debe ser: NumParte,Lote,Cantidad,Consecutivo'});
+        }
+        
+        var numParte = qrParts[0].trim();
+        var lote = qrParts[1].trim();
+        var cantidad = parseInt(qrParts[2].trim());
+        var consecutivo = qrParts[3].trim();
+        
+        // Validar que la etiqueta existe con estatus 'Print'
+        var queryValidar = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle AND status = 'Print'";
+        
+        db.query(queryValidar, {
+            numParte: [TYPES.VarChar, numParte],
+            lote: [TYPES.VarChar, lote],
+            cantidad: [TYPES.Int, cantidad],
+            consecutivo: [TYPES.VarChar, consecutivo],
+            idDetalle: [TYPES.Int, idDetalle]
+        }, (errValidar, resultValidar) => {
+            if(errValidar){
+                console.log(errValidar);
+                return res.send({status:'error', message:'Error al validar etiqueta'});
+            }
+            
+            if(resultValidar.length === 0){
+                // Verificar si la etiqueta existe pero con otro estatus: Valid
+                var queryExiste = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle";
+                db.query(queryExiste, {
+                    numParte: [TYPES.VarChar, numParte],
+                    lote: [TYPES.VarChar, lote],
+                    cantidad: [TYPES.Int, cantidad],
+                    consecutivo: [TYPES.VarChar, consecutivo],
+                    idDetalle: [TYPES.Int, idDetalle]
+                }, (errExiste, resultExiste) => {
+                    if(resultExiste && resultExiste.length > 0){
+                        return res.send({status:'error', message:'Esta etiqueta ya fue utilizada'});
+                    } else {
+                        return res.send({status:'error', message:'Etiqueta no encontrada para este registro'});
+                    }
+                });
+            } else {
+                // Etiqueta válida
+                res.send({
+                    status:'ok', 
+                    message:'Etiqueta válida',
+                    data: {
+                        labelId: resultValidar[0].Id,
+                        numParte: numParte,
+                        lote: lote,
+                        cantidad: cantidad,
+                        consecutivo: consecutivo
+                    }
+                });
+            }
+        });
+    });
+    //---Validar etiqueta escaneada
+
+    //---Guardar movimiento de material con etiqueta QR
+    app.post('/save/material/movement', isLoggedIn, function (req, res) {
+        var date = new Date();
+        var tiempo = newDate(date);
+        
+        // Parsear el código QR
+        var qrCode = req.body.qrCode;
+        var qrParts = qrCode.split(',');
+        
+        if(qrParts.length !== 4){
+            return res.send({status:'error', message:'Formato de QR inválido'});
+        }
+        
+        var numParte = qrParts[0].trim();
+        var lote = qrParts[1].trim();
+        var cantidad = parseInt(qrParts[2].trim());
+        var consecutivo = qrParts[3].trim();
+        
+        var idDetalle = req.body.idDetalle;
+        var tipoMovimiento = req.body.tipoMovimiento; // 'scrap' o 'proceso'
+        var destino = tipoMovimiento === 'scrap' ? 'Scrap' : 'Proceso';
+        var userId = req.user[0].user; // Usuario que realiza el movimiento
+        
+        // 1. Primero verificar que la etiqueta existe y tiene estatus 'Print'
+        var queryValidar = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle AND status = 'Print'";
+        
+        db.query(queryValidar, {
+            numParte: [TYPES.VarChar, numParte],
+            lote: [TYPES.VarChar, lote],
+            cantidad: [TYPES.Int, cantidad],
+            consecutivo: [TYPES.VarChar, consecutivo],
+            idDetalle: [TYPES.Int, idDetalle]
+        }, (errValidar, resultValidar) => {
+            if(errValidar){
+                console.log(errValidar);
+                return res.send({status:'error', message:'Error al validar etiqueta'});
+            }
+            
+            if(resultValidar.length === 0){
+                return res.send({status:'error', message:'Etiqueta no válida o ya utilizada'});
+            }
+            
+            var labelId = resultValidar[0].Id;
+            
+            // 2. Obtener datos actuales del detalle
+            var queryDetalle = "SELECT CantDisp, Number FROM DETALLE INNER JOIN NUMBERPART ON DETALLE.idRef = NUMBERPART.Id WHERE DETALLE.Id = @idDetalle";
+            
+            db.query(queryDetalle, {idDetalle: [TYPES.Int, idDetalle]}, (errDetalle, resultDetalle) => {
+                if(errDetalle || resultDetalle.length === 0){
+                    console.log(errDetalle);
+                    return res.send({status:'error', message:'Error al obtener datos del detalle'});
+                }
+                
+                var cantIni = resultDetalle[0].CantDisp || 0;
+                var numPartDetalle = resultDetalle[0].Number;
+                
+                // Verificar que hay cantidad disponible suficiente
+                if(cantIni < cantidad){
+                    return res.send({status:'error', message:'No hay cantidad disponible suficiente. Disponible: ' + cantIni});
+                }
+                
+                var cantFin = cantIni - cantidad;
+                
+                // 3. Actualizar estatus de la etiqueta a 'Valid'
+                var queryUpdateLabel = "UPDATE Labels SET status = 'Valid' WHERE Id = @labelId";
+                
+                db.query(queryUpdateLabel, {labelId: [TYPES.Int, labelId]}, (errLabel, resultLabel) => {
+                    if(errLabel){
+                        console.log(errLabel);
+                        return res.send({status:'error', message:'Error al actualizar etiqueta'});
+                    }
+                    
+                    // 4. Actualizar CantDisp y CantProcess o CantScrap en DETALLE según el tipo de movimiento
+                    var campoDestino = tipoMovimiento === 'scrap' ? 'CantScrap' : 'CantProcess';
+                    var queryUpdateDetalle = "UPDATE DETALLE SET CantDisp = CantDisp - @cantidad, " + campoDestino + " = ISNULL(" + campoDestino + ", 0) + @cantidad WHERE Id = @idDetalle";
+                    
+                    db.query(queryUpdateDetalle, {
+                        cantidad: [TYPES.Int, cantidad],
+                        idDetalle: [TYPES.Int, idDetalle]
+                    }, (errUpdateDetalle, resultUpdateDetalle) => {
+                        if(errUpdateDetalle){
+                            console.log(errUpdateDetalle);
+                            return res.send({status:'error', message:'Error al actualizar cantidades'});
+                        }
+                        
+                        // 5. Registrar movimiento en tabla Movimientos con User y Fecha
+                        var queryMovimiento = "INSERT INTO Movimientos (idDetalle, NumPart, CantIni, CantMov, CantFin, Destino, Fecha, [User]) VALUES (@idDetalle, @numPart, @cantIni, @cantMov, @cantFin, @destino, GETDATE(), @userId)";
+                        
+                        db.query(queryMovimiento, {
+                            idDetalle: [TYPES.Int, idDetalle],
+                            numPart: [TYPES.VarChar, numPartDetalle],
+                            cantIni: [TYPES.Int, cantIni],
+                            cantMov: [TYPES.Int, cantidad],
+                            cantFin: [TYPES.Int, cantFin],
+                            destino: [TYPES.VarChar, destino],
+                            userId: [TYPES.VarChar, userId]
+                        }, (errMov, resultMov) => {
+                            if(errMov){
+                                console.log(errMov);
+                                return res.send({status:'error', message:'Error al registrar movimiento'});
+                            }
+                            
+                            // Todo exitoso
+                            res.send({
+                                status:'ok', 
+                                message:'Movimiento registrado exitosamente',
+                                data: {
+                                    cantidad: cantidad,
+                                    cantidadFinal: cantFin,
+                                    destino: destino
+                                }
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+    //---Guardar movimiento de material con etiqueta QR
+    
+    //---Validar etiqueta para regresar material (status='Valid')
+    app.post('/validate/label/return', isLoggedIn, (req, res) => {
+        var qrCode = req.body.qrCode;
+        var idDetalle = req.body.idDetalle;
+        
+        if(!qrCode || !idDetalle){
+            return res.send({status:'error', message:'Datos incompletos'});
+        }
+        
+        // Parsear QR code (formato: NumParte,Lote,Cantidad,Consecutivo)
+        var qrParts = qrCode.split(',');
+        if(qrParts.length !== 4){
+            return res.send({status:'error', message:'Formato de QR inválido'});
+        }
+        
+        var numParte = qrParts[0].trim();
+        var lote = qrParts[1].trim();
+        var cantidad = parseInt(qrParts[2].trim());
+        var consecutivo = qrParts[3].trim();
+        
+        // Verificar que la etiqueta existe
+        var queryValidar = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle";
+        
+        db.query(queryValidar, {
+            numParte: [TYPES.VarChar, numParte],
+            lote: [TYPES.VarChar, lote],
+            cantidad: [TYPES.Int, cantidad],
+            consecutivo: [TYPES.VarChar, consecutivo],
+            idDetalle: [TYPES.Int, idDetalle]
+        }, (errValidar, resultValidar) => {
+            if(errValidar){
+                console.log(errValidar);
+                return res.send({status:'error', message:'Error al validar etiqueta'});
+            }
+            
+            if(resultValidar.length === 0){
+                return res.send({status:'error', message:'Etiqueta no encontrada'});
+            }
+            
+            // Verificar que el estatus sea 'Valid' (ya fue utilizada)
+            if(resultValidar[0].status !== 'Valid'){
+                return res.send({status:'error', message:'El material no ha sido utilizado'});
+            }
+            
+            // Etiqueta válida
+            res.send({
+                status:'ok', 
+                message:'Etiqueta validada',
+                data: {
+                    id: resultValidar[0].Id,
+                    cantidad: cantidad,
+                    numParte: numParte,
+                    lote: lote,
+                    consecutivo: consecutivo
+                }
+            });
+        });
+    });
+    //---Validar etiqueta para regresar material
+    
+    //---Guardar regreso de material al inventario
+    app.post('/save/material/return', isLoggedIn, (req, res) => {
+        var qrCode = req.body.qrCode;
+        var idDetalle = req.body.idDetalle;
+        var cantidadSobrante = parseInt(req.body.cantidadSobrante);
+        var notas = req.body.notas || '';
+        
+        if(!qrCode || !idDetalle || !cantidadSobrante){
+            return res.send({status:'error', message:'Datos incompletos'});
+        }
+        
+        // Parsear QR code
+        var qrParts = qrCode.split(',');
+        if(qrParts.length !== 4){
+            return res.send({status:'error', message:'Formato de QR inválido'});
+        }
+        
+        var numParte = qrParts[0].trim();
+        var lote = qrParts[1].trim();
+        var cantidadTotal = parseInt(qrParts[2].trim());
+        var consecutivo = qrParts[3].trim();
+        
+        // Validar que cantidadSobrante no sea mayor a la cantidad de la etiqueta
+        if(cantidadSobrante > cantidadTotal){
+            return res.send({status:'error', message:'La cantidad sobrante no puede ser mayor a ' + cantidadTotal});
+        }
+        
+        // 1. Verificar que la etiqueta existe
+        var queryValidar = "SELECT * FROM Labels WHERE Part = @numParte AND lote = @lote AND Cant = @cantidad AND Consc = @consecutivo AND idDetalle = @idDetalle";
+        
+        db.query(queryValidar, {
+            numParte: [TYPES.VarChar, numParte],
+            lote: [TYPES.VarChar, lote],
+            cantidad: [TYPES.Int, cantidadTotal],
+            consecutivo: [TYPES.VarChar, consecutivo],
+            idDetalle: [TYPES.Int, idDetalle]
+        }, (errValidar, resultValidar) => {
+            if(errValidar){
+                console.log(errValidar);
+                return res.send({status:'error', message:'Error al validar etiqueta'});
+            }
+            
+            if(resultValidar.length === 0){
+                return res.send({status:'error', message:'Etiqueta no encontrada'});
+            }
+            
+            // Verificar que el estatus sea 'Valid' (ya fue utilizada)
+            if(resultValidar[0].status !== 'Valid'){
+                return res.send({status:'error', message:'El material no ha sido utilizado'});
+            }
+            
+            var labelId = resultValidar[0].Id;
+            
+            // 2. Obtener datos actuales del detalle
+            var queryDetalle = "SELECT CantDisp, CantProcess FROM DETALLE WHERE Id = @idDetalle";
+            
+            db.query(queryDetalle, {idDetalle: [TYPES.Int, idDetalle]}, (errDetalle, resultDetalle) => {
+                if(errDetalle || resultDetalle.length === 0){
+                    console.log(errDetalle);
+                    return res.send({status:'error', message:'Error al obtener datos del detalle'});
+                }
+                
+                var cantDispActual = resultDetalle[0].CantDisp || 0;
+                var cantProcessActual = resultDetalle[0].CantProcess || 0;
+                
+                // Verificar que hay cantidad suficiente en proceso para regresar
+                if(cantProcessActual < cantidadSobrante){
+                    return res.send({status:'error', message:'No hay cantidad suficiente en proceso. Disponible: ' + cantProcessActual});
+                }
+                
+                var cantDispFinal = cantDispActual + cantidadSobrante;
+                
+                // 3. Actualizar cantidades en DETALLE: sumar a CantStock y CantDisp, restar de CantProcess, guardar notas en campo com
+                var queryUpdateDetalle = "UPDATE DETALLE SET CantStock = ISNULL(CantStock, 0) + @cantidad, CantDisp = CantDisp + @cantidad, CantProcess = CantProcess - @cantidad, com = @notas WHERE Id = @idDetalle";
+                
+                db.query(queryUpdateDetalle, {
+                    cantidad: [TYPES.Int, cantidadSobrante],
+                    idDetalle: [TYPES.Int, idDetalle],
+                    notas: [TYPES.NVarChar, notas]
+                }, (errUpdateDetalle, resultUpdateDetalle) => {
+                    if(errUpdateDetalle){
+                        console.log(errUpdateDetalle);
+                        return res.send({status:'error', message:'Error al actualizar cantidades'});
+                    }
+                    
+                    // 4. Actualizar estatus de la etiqueta a 'Print' (opcional, podría quedarse en 'Valid')
+                    // Por ahora la dejamos en 'Valid' ya que ya fue utilizada
+                    // Si se desea resetear: var queryUpdateLabel = "UPDATE Labels SET status = 'Print' WHERE Id = @labelId";
+                    
+                    // Todo exitoso - NO se guarda en Movimientos según especificaciones
+                    res.send({
+                        status:'ok', 
+                        message:'Material regresado exitosamente',
+                        data: {
+                            cantidad: cantidadSobrante,
+                            cantidadFinal: cantDispFinal
+                        }
+                    });
+                });
+            });
+        });
+    });
+    //---Guardar regreso de material al inventario
 
 
 

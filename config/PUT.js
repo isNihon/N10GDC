@@ -156,6 +156,7 @@ app.put('/register/reporte/detalle/',isLoggedIn,  function (req, res) {
         FF:[TYPES.NVarChar, req.body.FF],
         Nivel:[TYPES.NVarChar, req.body.Nivel],
         Ubicacion:[TYPES.NVarChar, req.body.Ubicacion],
+        fechaExp:[TYPES.NVarChar, req.body.fechaExp],
         Cantidad:[TYPES.Int,req.body.Cant],
         SDS:[TYPES.NVarChar, req.body.SDS],
         PRECIO:[TYPES.Float, req.body.PRECIO],
@@ -165,17 +166,80 @@ app.put('/register/reporte/detalle/',isLoggedIn,  function (req, res) {
         updateDate:[TYPES.NVarChar,tiempo],
         }
     
-        var query = "update DETALLE set "
-        query =query+ " FPO=@FPO,FFIN=@FF,NIVEL=@Nivel,UBIC=@Ubicacion,CANTIDAD=@Cantidad,"
-        query =query+ " Fecha=@updateDate,SDS=@SDS,PRECIO=@PRECIO,"
-        query =query+ " PROVEEDOR=@PROVEEDOR,COLOR=@COLOR,UM=@UM,SDC=@SDC"
-        query =query+ " where Id = @id"
-        
-        db.query(query, values ,  (err,valor) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                res.send({status:'ok', mensage:'Datos guardados',id:req.body.idd})
+        // Primero obtener la CANTIDAD actual, CantStock, CantDisp, CantProcess y CantScrap para calcular la diferencia
+        var querySelect = "SELECT CANTIDAD, CantStock, CantDisp, CantProcess, CantScrap, FPO, UBIC, FechaExp FROM DETALLE WHERE Id = @id";
+        db.query(querySelect, {id:[TYPES.Int,req.body.idd]}, (errSel, result) => {
+            if (errSel) {
+                console.log(errSel);
+                res.send({status:'error', mensage:'Error al obtener datos'});
+            } else if (result.length > 0) {
+                var cantidadAnterior = result[0].CANTIDAD;
+                var cantStockAnterior = result[0].CantStock;
+                var cantDispAnterior = result[0].CantDisp || 0;
+                var cantProcessAnterior = result[0].CantProcess || 0;
+                var cantScrapAnterior = result[0].CantScrap || 0;
+                var nuevaCantidad = req.body.Cant;
+                
+                // Verificar si se están intentando modificar FPO, Ubicacion o fechaExp
+                var fpoAnterior = result[0].FPO;
+                var ubicAnterior = result[0].UBIC;
+                var fechaExpAnterior = result[0].FechaExp;
+                
+                var cambioFPO = (fpoAnterior !== req.body.FPO);
+                var cambioUbic = (ubicAnterior !== req.body.Ubicacion);
+                var cambioFechaExp = (fechaExpAnterior !== req.body.fechaExp);
+                
+                // Si CantStock > 0 y se intenta cambiar FPO, Ubicacion o fechaExp, rechazar
+                /* if (cantStockAnterior > 0 && (cambioFPO || cambioUbic || cambioFechaExp)) {
+                    res.send({
+                        status:'error', 
+                        mensage:'No se pueden editar Fecha de ingreso PO, Ubicación o Fecha de Expiración. Debe imprimir todas las etiquetas primero.'
+                    });
+                    return;
+                } */
+                
+                // Calcular cuánto se ha consumido (impreso)
+                var consumido = cantidadAnterior - cantStockAnterior;
+                
+                // Calcular el nuevo CantStock: nueva cantidad menos lo que ya se consumió
+                var nuevoCantStock = nuevaCantidad - consumido;
+                
+                // Asegurar que no sea negativo
+                if (nuevoCantStock < 0) {
+                    nuevoCantStock = 0;
+                }
+                
+                // Calcular la diferencia entre la nueva cantidad y la anterior
+                var diferenciaCantidad = nuevaCantidad - cantidadAnterior;
+                
+                // Ajustar CantDisp sumando o restando la diferencia
+                var nuevoCantDisp = cantDispAnterior + diferenciaCantidad;
+                
+                // Asegurar que CantDisp no sea negativo
+                if (nuevoCantDisp < 0) {
+                    nuevoCantDisp = 0;
+                }
+                
+                values.nuevoCantStock = [TYPES.Int, nuevoCantStock];
+                values.CantDisp = [TYPES.Int, nuevoCantDisp];
+                values.CantProcess = [TYPES.Int, cantProcessAnterior]; // Mantener el valor actual de CantProcess
+                values.CantScrap = [TYPES.Int, cantScrapAnterior]; // Mantener el valor actual de CantScrap
+                
+                var query = "update DETALLE set "
+                query =query+ " FPO=@FPO,FFIN=@FF,NIVEL=@Nivel,UBIC=@Ubicacion, FechaExp=@fechaExp,CANTIDAD=@Cantidad,"
+                query =query+ " Fecha=@updateDate,SDS=@SDS,PRECIO=@PRECIO,"
+                query =query+ " PROVEEDOR=@PROVEEDOR,COLOR=@COLOR,UM=@UM,SDC=@SDC,CantStock=@nuevoCantStock,CantDisp=@CantDisp,CantProcess=@CantProcess,CantScrap=@CantScrap"
+                query =query+ " where Id = @id"
+                
+                db.query(query, values ,  (err,valor) => {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                        res.send({status:'ok', mensage:'Datos guardados',id:req.body.idd})
+                    }
+                });
+            } else {
+                res.send({status:'error', mensage:'Registro no encontrado'});
             }
         });
     });

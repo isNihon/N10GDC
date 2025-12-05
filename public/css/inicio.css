@@ -175,6 +175,25 @@ li.active{
 
 }
 
+#material thead th.action-header{
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 8px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+#material tbody td.action-cell{
+    text-align: center;
+    color: #2d3436;
+    cursor: pointer;
+}
+
+#material tbody td.action-cell:hover{
+    color: #0984e3;
+}
+
 .red{
     margin-top:2px;
     margin-left:10px;

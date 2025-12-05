@@ -1,9 +1,10 @@
 link(rel='stylesheet', href='/css/production/operators.css')  
-div(class="row panel" style="").col-12
+div(class="row panel").col-12
 
-    div.col-12.col-sm-12(style="")
+    div.col-12.col-sm-12
         div.col-12.col-sm-12.row.hdr(style="text-align:center;")
-            div.col-12.col-sm-12.row.hdr(style="justify-content:center ;")
+            div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
+                div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
                     h1 Formatos
                     i(
                         type="button"
@@ -18,7 +19,7 @@ div(class="row panel" style="").col-12
                         title="¡ADD USER!"
                         class="icon ion-ios-add")
 
-        div.col-12.col-sm-12(style="")
+        div.col-12.col-sm-12
             //-----tabla donde se listan mis usuarios
             div.col-12.col-sm-12(style="margin-bottom:20px;")
                 div(id="demo" class="botones")
@@ -110,7 +111,7 @@ div(class="row panel" style="").col-12
                                     
                                     
                                     div.form-group.row(class="col-3 col-md-3" style="padding-left:15px" )
-                                        label(style="width:100%;") Nivel:
+                                        label(style="width:100%;") Nivel de Ingeniería:
                                         input(type="text" name="Nivel" placeholder="" autocomplete="off" id="Nivel" ).form-control
                                         
                                     
@@ -125,19 +126,11 @@ div(class="row panel" style="").col-12
 
                                     div.form-group.row(class="col-3 col-md-3" style="padding-left:25px")
                                         label(style="width:100%;") Ubicacion
-                                        select(class="form-control form-control-sm" name="Ubicacion" id="Ubicacion")
-                                            option(value='') Seleccione Uno
-                                            option(value='U1') A.Recibo P1
-                                            option(value='U2') A.Recibo P2
-                                            option(value='U3') A.Recibo P3
-                                            option(value='U7') C.Verde P1
-                                            option(value='U8') C.Blanca P1
-                                            option(value='U9') I.Recibo P1
-                                            option(value='U10') I.Recibo P2
-                                            option(value='U11') I.Recibo P3
-                                            option(value='U4') Proceso P1
-                                            option(value='U5') Proceso P2
-                                            option(value='U6') Proceso P3
+                                        input(type="text" name="Ubicacion" autocomplete="off" id="Ubicacion" ).form-control
+
+                                    div.form-group.row(class="col-3 col-md-3" style="padding-left:15px" )
+                                        label(style="width:100%;") Fecha de Expiración
+                                        input(type="date" name="fechaExp" autocomplete="off" id="fechaExp" ).form-control
 
 
                                     div.form-group.row(class="col-3 col-md-3" style="padding-left:25px;padding-top:20px" )
@@ -145,11 +138,12 @@ div(class="row panel" style="").col-12
                                         button(type="button" class="btn btn-primary" onclick="saveFormDetalle()" ) 
                                             i(class="icon ion-ios-SAVE") 
 
-                            div(class="col-12 col-md-12" style="padding-left:0;padding-right:15px;justify-content:center;text-align:center")
+                            div(class="col-12 col-md-12" style="padding-left:0;padding-right:15px;justify-content:center;text-align:center;overflow-x:auto;max-width:100%")
                                 h3 Detalle de formato
                                 table(id="Tabledetalle" class="display responsive nowrap" style="width:100%" data-order='[[ 3, "DESC" ]]' data-page-length='5')
                                     thead
                                         tr
+                                            th
                                             th
                                             th
                                             th 
@@ -160,6 +154,7 @@ div(class="row panel" style="").col-12
                                             th(style="text-align:center") Ingreso
                                             th(style="text-align:center") Llegada
                                             th(style="text-align:center") Ubicación
+                                            th(style="text-align:center") Fecha Exp.
                                             th(style="text-align:center") Nivel
                                             th(style="text-align:center") PRECIO
                                             th(style="text-align:center") PROVEEDOR
@@ -182,8 +177,8 @@ div(class="row panel" style="").col-12
                                         div.row.col-1.col-sm-1(style="justify-content:center;")
                                             button(type="submit" name="submit" class="btn btn-primary col-12" id="btnSubmit" style="margin-left:10px;margin-top:20px;") +
                                 br              
-                                div.row.col-12.col-sm-12(style=" background: white;padding-right:0px;padding-top:7px;padding-bottom:15px ; height: 100%")                                             
-                                    div.col-12.col-sm-12(style="margin-bottom:20px;height: 100%")
+                                div.row.col-12.col-sm-12(style=" background: white;padding-right:0px;padding-top:7px;padding-bottom:15px ")                                             
+                                    div.col-12.col-sm-12(style="margin-bottom:20px;")
                                         div(id="RAE-DOCUMENTOS-prof" class="botones")
                                             table(id="tab-docs" class="display responsive " style="width:100%" data-order='[[ 6, "desc" ]]' data-page-length='3')
                                                 thead
@@ -195,6 +190,90 @@ div(class="row panel" style="").col-12
                                                         th DESCRIPCION
                                                         th FECHA
                                                         th DOCUMENTO
+                            
+                            br
+                            
+                            //--------Modal para impresión de etiquetas dentro del formulario
+                            div(class="col-12 col-md-12" style="padding-top:30px;padding-left:0px;padding-right:15px" id="div-print-labels" hidden)
+                                div(class="col-12 col-md-12" style="background-color:#E9F2F9;padding:20px;border-radius:5px")
+                                    div.row.col-12.col-sm-12(style="justify-content:center;")
+                                        input(type="text" id="idLAVEL-print" value="Imprimir Etiquetas" style="border-color:white; border-width: 1px; border-style: solid;font-size: 1.5em;text-align:center" readonly)
+                                    
+                                    //------secion de configuracion de impresora
+                                    div.col-12.col-md-12(id="div-print-config" hidden)
+                                        div.col-12.col-md-12(style="text-align:center")
+                                            h4(style="width:100%;") CONFIGURACION DE IMPRESORA:
+                                        form(action='/config/print/ifet/con/' method='put' class="col-12 col-sm-12" form-name="form-print-reportes")
+                                            div.form-group(class="col-12 col-md-12" style="background-color:#DAE2E3;padding-right:0;padding-left:0px;")
+                                                div.form-group(class="col-8 col-md-8" style='padding-right:0;padding-left:5px;')
+                                                    label(style="width:100%;") ZPL:
+                                                    textarea(id='ZPL-reportes' name="ZPL" rows='8' style="width:100%;" )
+                                                div.form-group(class="col-4 col-md-4" style='padding-right:5;padding-left:5px;')
+                                                    label(style="width:100%;") IP:
+                                                    input(type="text" name="IPPrint" placeholder="" autocomplete="off" id="IPPrint-reportes" ).form-control
+                                                    label(style="width:100%;") PUERTO:
+                                                    input(type="number" name="PORT" placeholder="" autocomplete="off" id="PORT-reportes" ).form-control
+                                                    div.form-group(class="col-12 col-md-12" style="padding-top:30px")
+                                                        div.form-group(class="col-9 col-md-9")
+                                                        div.form-group(class="col-2 col-md-2")
+                                                            button(type="button" class="btn btn-primary" onclick="UpConfyPrintReportes()" ) 
+                                                                i(class="icon ion-ios-SAVE") 
+                                                div(class="label-image" style="margin-top:10px;margin-bottom:10px")
+                                                    img(id="label-reportes" style="max-width:100%;height:auto")
+                                    
+                                    //-----configuracion de impresora boton, comentado para ocultar------------------------
+                                    //- div.row.col-12.col-md-12(style="padding-top:10px")
+                                    //-     div.col-11.col-md-11.row
+                                    //-     div.col-1.col-md-1.row
+                                    //-         button(type="button" onclick="settingPrintReportes()" ) 
+                                    //-             i(class="icon ion-ios-settings") 
+                                    
+                                    //-----seccion data print
+                                    div.col-12.col-md-12.row(style="padding-top:20px")
+                                        form(action='/register/prin/label' method='post' class="col-12 col-sm-12" form-name="form-registerPrint-reportes")
+                                            div.form-group.row(class="col-12 col-md-12")
+                                                div.col-12.col-sm-12.row
+                                                    div.col-12.col-sm-12.row(hidden)
+                                                        label id 
+                                                        input(type="number" name="idDAT" placeholder="" autocomplete="off" id="idDAT-reportes" ).form-control
+                                                        label NPart 
+                                                        input(type="text" name="NPart" placeholder="" autocomplete="off" id="NPart-reportes" ).form-control
+                                                        label Cript 
+                                                        input(type="text" name="Cript" placeholder="" autocomplete="off" id="Cript-reportes" ).form-control
+                                                        label MoDel 
+                                                        input(type="text" name="MoDel" placeholder="" autocomplete="off" id="MoDel-reportes" ).form-control
+                                                        label FeLL 
+                                                        input(type="text" name="FeLL" placeholder="" autocomplete="off" id="FeLL-reportes" ).form-control
+                                                        label SDS 
+                                                        input(type="text" name="SDS1" placeholder="" autocomplete="off" id="SDS1-reportes" ).form-control
+                                                        label Nivel/Dnote
+                                                        input(type="text" name="Dnote" placeholder="" autocomplete="off" id="Dnote-reportes" ).form-control
+                                                        label idDetalle
+                                                        input(type="number" name="idDetalle" placeholder="" autocomplete="off" id="idDetalle-reportes" ).form-control
+                                                        label Consecutivo
+                                                        input(type="text" name="Consecutivo" placeholder="" autocomplete="off" id="Consecutivo-reportes" ).form-control
+
+                                                div.col-12.col-sm-12.row(style="padding-left:55px;padding-top:10px")
+                                                    div.col-6.col-sm-6.row
+                                                        div.col-12.col-sm-12.row
+                                                            label Disponible 
+                                                            input(type="text" name="totCAN" placeholder="" autocomplete="off" id="totCAN-reportes" readonly).form-control
+                                                        div.col-12.col-sm-12.row(style="padding-top:15px")
+                                                            label N.Etiquetas disponibles 
+                                                            input(type="number" name="NEtf" placeholder="" autocomplete="off" id="NEtf-reportes" value=0 readonly).form-control
+                                                    div.col-6.col-sm-6.row
+                                                        div.col-12.col-sm-12.row
+                                                            label Cantidad
+                                                            input(type="number" name="CantpRI" placeholder="" autocomplete="off" id="CantpRI-reportes" value=0).form-control
+                                                        div.col-12.col-sm-12.row(style="padding-top:15px")
+                                                            label Imprimir Etiquetas
+                                                            input(type="number" name="PrintLabelET" placeholder="" autocomplete="off" id="PrintLabelET-reportes" value=0).form-control
+                                                div.col-12.col-sm-12.row
+                                                    div.col-5.col-sm-5.row
+                                                    div.col-2.col-sm-2.row
+                                                        div.form-group(class="col-12 col-md-12" style="padding-top:30px")
+                                                            button(type="button" class="btn btn-primary" onclick="printLabelReportes()" ) 
+                                                                i(class="icon ion-ios-print") 
                             
                             br
                             div(class="modal-footer").col-12

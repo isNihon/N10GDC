@@ -25,6 +25,12 @@ require('./config/routes.js')(app, passport); // load our routes and pass in our
 require('./config/POST.js')(app, passport);
 require('./config/reports.js')(app, passport);
 require('./config/PUT.js')(app, passport);
+require('./config/notifications.js')(app, passport); // Sistema de notificaciones
+
+// Iniciar scheduler de notificaciones
+const notificationScheduler = require('./config/notificationScheduler');
+notificationScheduler.start();
+
 // Take error Messsages
 app.use(function(err,req, res, next){
     res.writeHead(err.status || 500,{

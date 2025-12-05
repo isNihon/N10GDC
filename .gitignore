@@ -4,5 +4,4 @@ temp
 tmp
 *.swp
 
-
-config/config.js
+/config/config.js

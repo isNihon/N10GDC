@@ -1,0 +1,139 @@
+link(rel='stylesheet', href='/css/production/operators.css')  
+div(class="row panel").col-12
+
+    div.col-12.col-sm-12
+        div.col-12.col-sm-12.row.hdr(style="text-align:center;")
+            div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
+                div.col-12.col-sm-12.row.hdr(style="justify-content:center ")
+                    h1 Configuración de Notificaciones
+                    i(
+                        type="button"
+                        style="color:green"
+                        data-toggle="modal"
+                        data-target="#modalAddNotification"
+                        alt="Settings"
+                        class="btn btn-default"
+                        id="btn-add-notification"
+                        onmouseover="this.style.transform='scale(3)'"
+                        onmouseout="this.style.transform='scale(1)'"
+                        title="¡Agregar Notificación!"
+                        class="icon ion-ios-add")
+
+        div.col-12.col-sm-12
+            //-----tabla donde se listan las configuraciones
+            div.col-12.col-sm-12(style="margin-bottom:20px;")
+                div(id="demo" class="botones")
+                    table(id="table-notifications" class="display responsive nowrap" style="width:100%" data-order='[[ 0, "desc" ]]' data-page-length='10')
+                        thead
+                            tr
+                                th
+                                th
+                                th(style="text-align:center" ) ID
+                                th(style="text-align:center" ) Tipo
+                                th(style="text-align:center" ) Hora
+                                th(style="text-align:center" ) Días Antes
+                                th(style="text-align:center" ) Destinatarios
+                                th(style="text-align:center" ) Estado
+                                th(style="text-align:center" ) Último Envío
+
+
+        //------modal de agregar/editar configuración
+        div(class="modal fade" id="modalAddNotification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto;overflow-x:hidden")
+            div(class="modal-dialog modal-xl" role="document")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        div.modal-title
+                        h5(style="padding-left:40%") CONFIGURACIÓN DE NOTIFICACIÓN
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                    
+                    div(class="modal-body " style="padding-left:0;padding-right:0px")
+                        div.form-group.row(class="col-12 col-md-12" style="padding-left:80px;")
+                            form(action='/config/notification' method='post' class="col-12 col-sm-12" form-name="form-notification")
+                                
+                                //-----ID de REGISTRO (para edición)
+                                input(type="number" name="notificationId" id="notificationId" hidden ).form-control
+                                
+            
+                                div.form-group.row(class="col-6 col-md-6" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Tipo de Notificación:
+                                    select(class="form-control" name="notificationType" id="notificationType" required)
+                                        option(value='') Seleccione un tipo
+                                        option(value='ORDER_ARRIVAL') Llegada de Material
+                                        option(value='LOW_STOCK') Expiración de Material
+
+                                div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Asunto del Correo:
+                                    input(type="text" name="emailSubject" id="emailSubject").form-control           
+
+                                div.form-group.row(class="col-12 col-md-12" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Descripción:
+                                    textarea(name="notificationDescription" id="notificationDescription" rows="2" style="width:100%").form-control
+
+                                div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Hora de Envío:
+                                    input(type="time" name="triggerTime" id="triggerTime" value="10:00" ).form-control
+
+                                div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Días Antes del Evento:
+                                    input(type="number" name="daysBefore" id="daysBefore" value="1" min="0" max="30" ).form-control
+
+                                div.form-group.row(class="col-4 col-md-4" style="padding-left:5px")
+                                    label(style="width:100%;font-weight:bold;") Estado:
+                                    select(class="form-control" name="notificationStatus" id="notificationStatus")
+                                        option(value='Activo') Activo
+                                        option(value='Deshabilitado') Deshabilitado
+
+                                div.form-group.row(class="col-12 col-md-12" style="padding-left:5px;padding-top:20px")
+                                    button(type="button" class="btn btn-primary" onclick="saveNotificationConfig()" id="btn-save-notification")
+                                        i(class="icon ion-ios-save") 
+                                        span  Guardar Configuración
+
+                        //-----sección de destinatarios
+                        div.form-group.row(class="col-12 col-md-12" style="padding-top:30px;padding-left:25px;padding-right:20px;background-color:#E9F2F9" id="div-recipients")
+                            div.col-12.col-sm-12.row(style="justify-content:center;padding-bottom:15px")
+                                h4 DESTINATARIOS
+
+                            form(action='/config/notification/recipient' method='post' class="col-12 col-sm-12" form-name="form-recipient" style="padding-left:90px")
+                                input(type="number" name="recipientNotificationId" id="recipientNotificationId" hidden ).form-control
+                                input(type="number" name="recipientId" id="recipientId" hidden ).form-control
+
+                                div.form-group.row(class="col-4 col-md-4" )
+                                    label(style="width:100%;font-weight:bold;") Tipo de Destinatario:
+                                    select(class="form-control" name="recipientType" id="recipientType" onchange="toggleRecipientFields()")
+                                        option(value='') Seleccione
+                                        option(value='USER') Usuarios
+                                        option(value='EMAIL') Email Directo
+                                       
+
+                                div.form-group.row(class="col-5 col-md-5" style="padding-left:15px" id="div-user-select")
+                                    label(style="width:100%;font-weight:bold;") Usuario:
+                                    select(class="form-control" name="recipientUserId" id="recipientUserId")
+                                        option(value='') Seleccione un usuario
+                                        each usr in usuarios
+                                            option(value=usr.Id)= usr.name + ' - ' + usr.email
+
+                                div.form-group.row(class="col-5 col-md-5" style="padding-left:15px;display:none" id="div-email-input")
+                                    label(style="width:100%;font-weight:bold;") Email:
+                                    input(type="email" name="recipientEmail" id="recipientEmail" placeholder="ejemplo@nipsa.com.mx" ).form-control
+
+
+                                div.form-group.row(class="col-2 col-md-2" style="padding-left:15px;padding-top:32px")
+                                    button(type="button" class="btn btn-success" onclick="addRecipient()" )
+                                        i(class="icon ion-ios-add") 
+                                        span  Agregar
+
+                            //-----tabla de destinatarios
+                            div(class="col-12 col-md-12" style="padding-left:0;padding-right:15px;")
+                                table(id="table-recipients" class="display" style="width:100%" data-page-length='5')
+                                    thead
+                                        tr
+                                            th(style="text-align:center" ) #
+                                            th(style="text-align:center" ) Tipo
+                                            th(style="text-align:center" ) Destinatario
+                                            th(style="text-align:center" ) Eliminar
+
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-secondary" data-dismiss="modal") Cerrar
+
+script(src='/js/production/notificaciones.js' type="text/javascript")

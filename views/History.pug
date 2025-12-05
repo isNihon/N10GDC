@@ -15,22 +15,24 @@ div(class="row panel").col-12
 
 
     div.col-12.col-sm-12
-        div.col-12.col-sm-12(style="margin-bottom:20px; height: 100%" id="div-labels" hidden)
+        div.col-12.col-sm-12(style="margin-bottom:20px;" id="div-labels" hidden)
             div(id="demo" class="botones")
                 table(id="table-labels" class="display responsive nowrap" style="width:100%" data-order='[[ 1, "desc" ]]' data-page-length='30')
                     thead
                         tr
                             th
                             th(style="text-align:center;background-color:#e6e9e9" ) ID
+                            th(style="text-align:center;background-color:#e6e9e9" ) id Ref
                             th(style="text-align:center;background-color:#e6e9e9" ) N.Parte
-                            th(style="text-align:center;background-color:#e6e9e9" ) Descripcion
+                            th(style="text-align:center;background-color:#e6e9e9" ) Descripción
                             th(style="text-align:center;background-color:#e6e9e9" ) Modelo
-                            th(style="text-align:center;background-color:#e6e9e9" ) SDS
-                            //th(style="text-align:center;background-color:#e6e9e9" ) Serial
-                            th(style="text-align:center;background-color:#e6e9e9" ) SNP
+                            th(style="text-align:center;background-color:#e6e9e9" ) Cantidad
+                            th(style="text-align:center;background-color:#e6e9e9" ) D-Note
+                            th(style="text-align:center;background-color:#e6e9e9" ) Lote
+                            th(style="text-align:center;background-color:#e6e9e9" ) Consecutivo
+                            th(style="text-align:center;background-color:#e6e9e9" ) Status
                             th(style="text-align:center;background-color:#e6e9e9" ) Fecha
-                            //th(style="text-align:center" ) 
-                            //th(style="text-align:center" ) Fecha
+                            th(style="text-align:center;background-color:#e6e9e9" ) Usuario
 
 
         div.col-12.col-sm-12(style="margin-bottom:20px;"  id="div-eventos" )
@@ -40,11 +42,14 @@ div(class="row panel").col-12
                         tr
                             th 
                             th(style="text-align:center") Id
-                            th(style="text-align:center;background-color:#6399F2") CANTIDAD
-                            th(style="text-align:center;background-color:#6399F2 ") ORIGEN
-                            th(style="text-align:center;background-color:#83DEF0 ") CANTIDAD
-                            th(style="text-align:center;background-color:#83DEF0 ") DESTINO
-                            th(style="text-align:center") FECHA
+                            th(style="text-align:center") id Ref
+                            th(style="text-align:center;background-color:#6399F2") N.Parte
+                            th(style="text-align:center;background-color:#83DEF0 ") Cantidad  Inicial
+                            th(style="text-align:center;background-color:#83DEF0 ") Cantidad Movida
+                            th(style="text-align:center") Cantidad Final
+                            th(style="text-align:center") Destino
+                            th(style="text-align:center") Fecha
+                            th(style="text-align:center") Usuario
 
         //-----MODAL DE BUSQUEDA
         div(class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
